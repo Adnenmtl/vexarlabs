@@ -17,7 +17,12 @@ const apps = [
     platforms: ["iOS", "Android"],
     icon: Smartphone,
     color: "bg-emerald-500",
-    screenshot: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/vCKTekypYZCHlgtr.png",
+    appIcon: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/xaZHlbEgJmsATdJf.png",
+    screenshots: [
+      "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/xLWDDYoUpTABhfWp.png",
+      "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/EVLvPWqvQAXjYPld.png",
+      "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/VBjeviPOeFuNsPjP.png",
+    ],
   },
   {
     id: "fmarabia",
@@ -75,9 +80,17 @@ export default function Home() {
                   >
                     <div className="flex flex-col md:flex-row md:items-start gap-6">
                       <div className="flex gap-4 flex-1">
-                        <div className={`w-12 h-12 rounded-xl ${app.color} flex items-center justify-center flex-shrink-0`}>
-                          <IconComponent className="w-6 h-6 text-white" />
-                        </div>
+                        {app.appIcon ? (
+                          <img 
+                            src={app.appIcon} 
+                            alt={`Icône ${app.name}`}
+                            className="w-12 h-12 rounded-xl flex-shrink-0 object-cover"
+                          />
+                        ) : (
+                          <div className={`w-12 h-12 rounded-xl ${app.color} flex items-center justify-center flex-shrink-0`}>
+                            <IconComponent className="w-6 h-6 text-white" />
+                          </div>
+                        )}
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
                             <h3 className="text-lg font-semibold">{app.name}</h3>
@@ -114,13 +127,16 @@ export default function Home() {
                         </div>
                       </div>
                       
-                      {app.screenshot && (
-                        <div className="md:w-48 flex-shrink-0">
-                          <img 
-                            src={app.screenshot} 
-                            alt={`Capture d'écran de ${app.name}`}
-                            className="w-full h-auto rounded-lg shadow-md"
-                          />
+                      {app.screenshots && (
+                        <div className="flex gap-3 md:w-auto flex-shrink-0">
+                          {app.screenshots.map((screenshot, index) => (
+                            <img 
+                              key={index}
+                              src={screenshot} 
+                              alt={`Capture d'écran ${index + 1} de ${app.name}`}
+                              className="w-32 h-auto rounded-lg shadow-md"
+                            />
+                          ))}
                         </div>
                       )}
                     </div>
