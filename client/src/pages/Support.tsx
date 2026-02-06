@@ -31,10 +31,10 @@ export default function Support() {
                     envoyez-nous un email. Nous répondons généralement sous 24-48 heures.
                   </p>
                   <a 
-                    href="mailto:support@vexarlabs.com" 
+                    href="mailto:contact@vexarlabs.com" 
                     className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
                   >
-                    support@vexarlabs.com
+                    contact@vexarlabs.com
                   </a>
                 </div>
               </div>
@@ -53,7 +53,7 @@ export default function Support() {
                     <div>
                       <h3 className="font-semibold mb-2">Comment supprimer mon compte ?</h3>
                       <p className="text-sm text-muted-foreground">
-                        Pour supprimer votre compte et vos données, envoyez-nous un email à support@vexarlabs.com 
+                        Pour supprimer votre compte et vos données, envoyez-nous un email à contact@vexarlabs.com 
                         avec l'objet "Suppression de compte". Nous traiterons votre demande dans les 30 jours.
                       </p>
                     </div>
@@ -93,7 +93,7 @@ export default function Support() {
               <div className="text-sm text-muted-foreground space-y-2">
                 <p><strong className="text-foreground">VexarLabs</strong></p>
                 <p>Email : <a href="mailto:contact@vexarlabs.com" className="text-primary hover:underline">contact@vexarlabs.com</a></p>
-                <p>Support : <a href="mailto:support@vexarlabs.com" className="text-primary hover:underline">support@vexarlabs.com</a></p>
+                <p>Support : <a href="mailto:contact@vexarlabs.com" className="text-primary hover:underline">contact@vexarlabs.com</a></p>
               </div>
             </section>
           </div>

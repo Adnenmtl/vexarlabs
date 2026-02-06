@@ -227,7 +227,7 @@ export default function AppPrivacy() {
               </h3>
               <p className="text-muted-foreground leading-relaxed pl-10">
                 Pour supprimer votre compte et toutes les données associées, envoyez un email à 
-                <a href="mailto:support@vexarlabs.com" className="text-primary hover:underline mx-1">support@vexarlabs.com</a> 
+                <a href="mailto:contact@vexarlabs.com" className="text-primary hover:underline mx-1">contact@vexarlabs.com</a> 
                 avec l'objet "Suppression de compte - {app.name}". Votre demande sera traitée dans un délai de 30 jours.
               </p>
             </section>
@@ -243,7 +243,7 @@ export default function AppPrivacy() {
               <div className="text-muted-foreground space-y-1">
                 <p><strong className="text-foreground">VexarLabs</strong></p>
                 <p>Email : <a href="mailto:contact@vexarlabs.com" className="text-primary hover:underline">contact@vexarlabs.com</a></p>
-                <p>Support : <a href="mailto:support@vexarlabs.com" className="text-primary hover:underline">support@vexarlabs.com</a></p>
+                <p>Support : <a href="mailto:contact@vexarlabs.com" className="text-primary hover:underline">contact@vexarlabs.com</a></p>
               </div>
             </section>
 
