@@ -242,7 +242,6 @@ export default function AppPrivacy() {
               </p>
               <div className="text-muted-foreground space-y-1">
                 <p><strong className="text-foreground">VexarLabs</strong></p>
-                <p>Email : <a href="mailto:contact@vexarlabs.com" className="text-primary hover:underline">contact@vexarlabs.com</a></p>
                 <p>Support : <a href="mailto:contact@vexarlabs.com" className="text-primary hover:underline">contact@vexarlabs.com</a></p>
               </div>
             </section>
