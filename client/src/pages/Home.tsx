@@ -24,6 +24,8 @@ const apps = [
       "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/EVLvPWqvQAXjYPld.png",
       "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/VBjeviPOeFuNsPjP.png",
     ],
+    appStoreUrl: "#", // À remplacer par le vrai lien App Store
+    playStoreUrl: "#", // À remplacer par le vrai lien Google Play
   },
   {
     id: "fmarabia",
@@ -120,12 +122,52 @@ export default function Home() {
                               </span>
                             ))}
                           </div>
-                          <Link 
-                            href={`/app/${app.id}/privacy`}
-                            className="text-primary hover:text-primary/80 font-medium transition-colors text-sm inline-block"
-                          >
-                            Confidentialité →
-                          </Link>
+                          {/* Badges stores pour Ronde de Sécurité Taxi */}
+                          {app.id === "ronde-securite-taxi" && (app as any).appStoreUrl && (
+                            <div className="flex gap-2 mb-3">
+                              <a 
+                                href={(app as any).appStoreUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block"
+                              >
+                                <img 
+                                  src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/fr-ca?size=250x83&amp;releaseDate=1705363200" 
+                                  alt="Télécharger dans l'App Store"
+                                  className="h-10"
+                                />
+                              </a>
+                              <a 
+                                href={(app as any).playStoreUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block"
+                              >
+                                <img 
+                                  src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png" 
+                                  alt="Disponible sur Google Play"
+                                  className="h-10"
+                                />
+                              </a>
+                            </div>
+                          )}
+                          
+                          <div className="flex gap-3">
+                            {app.id === "ronde-securite-taxi" && (
+                              <Link 
+                                href="/app/ronde-securite-taxi"
+                                className="text-primary hover:text-primary/80 font-medium transition-colors text-sm inline-block"
+                              >
+                                En savoir plus →
+                              </Link>
+                            )}
+                            <Link 
+                              href={`/app/${app.id}/privacy`}
+                              className="text-primary hover:text-primary/80 font-medium transition-colors text-sm inline-block"
+                            >
+                              Confidentialité →
+                            </Link>
+                          </div>
                         </div>
                       </div>
                       

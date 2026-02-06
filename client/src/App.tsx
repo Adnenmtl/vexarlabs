@@ -9,6 +9,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import Support from "./pages/Support";
 import AppPrivacy from "./pages/AppPrivacy";
+import RondeSecuriteTaxi from "./pages/RondeSecuriteTaxi";
 
 function Router() {
   return (
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/privacy" component={PrivacyPolicy} />
       <Route path="/terms" component={TermsOfService} />
       <Route path="/support" component={Support} />
+      <Route path="/app/ronde-securite-taxi" component={RondeSecuriteTaxi} />
       <Route path="/app/:appId/privacy" component={AppPrivacy} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
