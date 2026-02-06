@@ -10,19 +10,19 @@ import { ArrowLeft, Shield, Database, Key, Clock, UserCheck, Trash2, Mail, Refre
 const appData: Record<string, { name: string; description: string; dataCollected: string[]; permissions: string[]; color: string }> = {
   "ronde-securite-taxi": {
     name: "Ronde de Sécurité Taxi",
-    description: "Application de sécurité pour les chauffeurs de taxi avec système de rondes automatisées et alertes en temps réel.",
+    description: "Application mobile de gestion des rondes de sécurité pour chauffeurs de taxi, conforme aux normes de la SAAQ (Société de l'assurance automobile du Québec). Facilite la vérification sommaire quotidienne obligatoire avec checklist de 19 points standard + 6 points Taxi Adapté.",
     dataCollected: [
-      "Données de localisation GPS (pour le suivi des rondes)",
-      "Informations du compte utilisateur (nom, email, numéro de téléphone)",
-      "Historique des rondes et alertes",
-      "Identifiants de l'appareil",
+      "Informations du chauffeur (nom, numéro de permis de conduire, numéro de permis de chauffeur autorisé)",
+      "Informations du véhicule (marque, modèle, immatriculation, kilométrage)",
+      "Résultats des vérifications (date, heure, état de chaque point, statut global)",
+      "Adresse email destinataire (optionnelle, pour envoi automatique des rapports)",
+      "Données techniques (version de l'application, type d'appareil, langue)",
     ],
     permissions: [
-      "Localisation (en arrière-plan pour le suivi des rondes)",
-      "Notifications push (pour les alertes de sécurité)",
-      "Accès réseau (pour la synchronisation des données)",
+      "Stockage local (pour sauvegarder l'historique des rondes)",
+      "Accès au client email (pour envoi optionnel des rapports par email)",
     ],
-    color: "bg-emerald-500",
+    color: "bg-amber-500",
   },
   "fmarabia": {
     name: "FMarabia",
