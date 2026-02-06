@@ -128,13 +128,13 @@ export default function Home() {
                       </div>
                       
                       {app.screenshots && (
-                        <div className="flex gap-3 md:w-auto flex-shrink-0">
+                        <div className="flex gap-2 overflow-x-auto md:overflow-visible">
                           {app.screenshots.map((screenshot, index) => (
                             <img 
                               key={index}
                               src={screenshot} 
                               alt={`Capture d'écran ${index + 1} de ${app.name}`}
-                              className="w-32 h-auto rounded-lg shadow-md"
+                              className="w-24 md:w-28 h-auto rounded-lg shadow-md flex-shrink-0"
                             />
                           ))}
                         </div>
