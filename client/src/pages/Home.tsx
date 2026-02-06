@@ -13,10 +13,11 @@ const apps = [
   {
     id: "ronde-securite-taxi",
     name: "Ronde de Sécurité Taxi",
-    description: "Application de sécurité pour les chauffeurs de taxi. Système de rondes automatisées et alertes en temps réel.",
+    description: "Application mobile de gestion des rondes de sécurité pour chauffeurs de taxi, conforme aux normes de la SAAQ. Checklist complète de 15 points, historique des rondes, rapports par email, mode hors-ligne.",
     platforms: ["iOS", "Android"],
     icon: Smartphone,
     color: "bg-emerald-500",
+    screenshot: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/vCKTekypYZCHlgtr.png",
   },
   {
     id: "fmarabia",
@@ -72,8 +73,8 @@ export default function Home() {
                     key={app.id}
                     className="p-6 bg-white border border-border rounded-xl hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
                   >
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                      <div className="flex gap-4">
+                    <div className="flex flex-col md:flex-row md:items-start gap-6">
+                      <div className="flex gap-4 flex-1">
                         <div className={`w-12 h-12 rounded-xl ${app.color} flex items-center justify-center flex-shrink-0`}>
                           <IconComponent className="w-6 h-6 text-white" />
                         </div>
@@ -94,7 +95,7 @@ export default function Home() {
                           <p className="text-muted-foreground text-sm mb-3">
                             {app.description}
                           </p>
-                          <div className="flex gap-2">
+                          <div className="flex gap-2 mb-3">
                             {app.platforms.map((platform) => (
                               <span 
                                 key={platform}
@@ -104,17 +105,24 @@ export default function Home() {
                               </span>
                             ))}
                           </div>
+                          <Link 
+                            href={`/app/${app.id}/privacy`}
+                            className="text-primary hover:text-primary/80 font-medium transition-colors text-sm inline-block"
+                          >
+                            Confidentialité →
+                          </Link>
                         </div>
                       </div>
                       
-                      <div className="flex gap-4 text-sm md:ml-4">
-                        <Link 
-                          href={`/app/${app.id}/privacy`}
-                          className="text-primary hover:text-primary/80 font-medium transition-colors"
-                        >
-                          Confidentialité →
-                        </Link>
-                      </div>
+                      {app.screenshot && (
+                        <div className="md:w-48 flex-shrink-0">
+                          <img 
+                            src={app.screenshot} 
+                            alt={`Capture d'écran de ${app.name}`}
+                            className="w-full h-auto rounded-lg shadow-md"
+                          />
+                        </div>
+                      )}
                     </div>
                   </div>
                 );
