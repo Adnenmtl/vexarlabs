@@ -4,18 +4,18 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
-  VexarLabs - Minimalist Theme
+  VexarLabs - Minimalist Theme with Subtle Colors
   
   Design Philosophy:
   - Clean white background
-  - Simple black/gray typography
-  - Subtle accents
-  - Maximum readability
-  - Professional and understated
+  - Subtle indigo/blue accent color
+  - Modern typography (Outfit + DM Sans)
+  - Professional and refined
 */
 
 @theme inline {
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: "Outfit", system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -42,26 +42,27 @@
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 0.75rem;
   --background: oklch(0.995 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: oklch(0.205 0.02 265);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.205 0.02 265);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.205 0.02 265);
+  /* Indigo accent color */
+  --primary: oklch(0.55 0.2 265);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.965 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.965 0 0);
-  --muted-foreground: oklch(0.465 0 0);
-  --accent: oklch(0.965 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.965 0.01 265);
+  --secondary-foreground: oklch(0.35 0.1 265);
+  --muted: oklch(0.965 0.005 265);
+  --muted-foreground: oklch(0.5 0.02 265);
+  --accent: oklch(0.95 0.02 265);
+  --accent-foreground: oklch(0.35 0.15 265);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: oklch(0.92 0.01 265);
+  --input: oklch(0.92 0.01 265);
+  --ring: oklch(0.55 0.2 265);
 }
 
 @layer base {
@@ -71,6 +72,11 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Outfit", system-ui, sans-serif;
+  }
+  
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),

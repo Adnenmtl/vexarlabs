@@ -1,13 +1,13 @@
 /*
-  VexarLabs - App-specific Privacy Policy Page
-  Dynamic page for each application's privacy policy
+  VexarLabs - App-specific Privacy Policy Page with Color Accent
 */
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useParams, Link } from "wouter";
+import { ArrowLeft, Shield, Database, Key, Clock, UserCheck, Trash2, Mail, RefreshCw } from "lucide-react";
 
-const appData: Record<string, { name: string; description: string; dataCollected: string[]; permissions: string[] }> = {
+const appData: Record<string, { name: string; description: string; dataCollected: string[]; permissions: string[]; color: string }> = {
   "ronde-securite-taxi": {
     name: "Ronde de Sécurité Taxi",
     description: "Application de sécurité pour les chauffeurs de taxi avec système de rondes automatisées et alertes en temps réel.",
@@ -22,6 +22,7 @@ const appData: Record<string, { name: string; description: string; dataCollected
       "Notifications push (pour les alertes de sécurité)",
       "Accès réseau (pour la synchronisation des données)",
     ],
+    color: "bg-emerald-500",
   },
   "fmarabia": {
     name: "FMarabia",
@@ -37,6 +38,7 @@ const appData: Record<string, { name: string; description: string; dataCollected
       "Accès réseau",
       "Stockage local",
     ],
+    color: "bg-blue-500",
   },
   "influvo": {
     name: "Influvo",
@@ -55,6 +57,7 @@ const appData: Record<string, { name: string; description: string; dataCollected
       "Caméra (si fonctionnalité utilisée)",
       "Microphone (si fonctionnalité utilisée)",
     ],
+    color: "bg-violet-500",
   },
 };
 
@@ -68,11 +71,11 @@ export default function AppPrivacy() {
         <Header />
         <main className="flex-1 py-16">
           <div className="container max-w-3xl text-center">
-            <h1 className="text-2xl font-semibold mb-4">Application non trouvée</h1>
+            <h1 className="text-2xl font-bold mb-4">Application non trouvée</h1>
             <p className="text-muted-foreground mb-6">
               La politique de confidentialité demandée n'existe pas.
             </p>
-            <Link href="/" className="text-foreground hover:underline">
+            <Link href="/" className="text-primary hover:underline font-medium">
               Retour à l'accueil
             </Link>
           </div>
@@ -88,80 +91,124 @@ export default function AppPrivacy() {
       
       <main className="flex-1 py-16">
         <div className="container max-w-3xl">
-          <div className="mb-6">
-            <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              ← Retour aux applications
+          <div className="mb-8">
+            <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+              <ArrowLeft className="w-4 h-4" />
+              Retour aux applications
             </Link>
           </div>
 
-          <h1 className="text-2xl font-semibold mb-2">Politique de Confidentialité</h1>
-          <h2 className="text-lg text-muted-foreground mb-2">{app.name}</h2>
-          <p className="text-sm text-muted-foreground mb-8">
+          <div className="flex items-center gap-4 mb-6">
+            <div className={`w-12 h-12 rounded-xl ${app.color} flex items-center justify-center`}>
+              <Shield className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold">Politique de Confidentialité</h1>
+              <h2 className="text-lg text-muted-foreground">{app.name}</h2>
+            </div>
+          </div>
+          
+          <p className="text-sm text-muted-foreground mb-10 pb-6 border-b border-border">
             Dernière mise à jour : {new Date().toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}
           </p>
 
-          <div className="prose prose-neutral max-w-none">
-            <section className="mb-8">
-              <h3 className="text-lg font-medium mb-3">À propos de cette application</h3>
-              <p className="text-muted-foreground leading-relaxed">
+          <div className="space-y-10">
+            <section>
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Shield className="w-4 h-4 text-primary" />
+                </span>
+                À propos de cette application
+              </h3>
+              <p className="text-muted-foreground leading-relaxed pl-10">
                 {app.description}
               </p>
             </section>
 
-            <section className="mb-8">
-              <h3 className="text-lg font-medium mb-3">Données collectées</h3>
-              <p className="text-muted-foreground leading-relaxed mb-3">
+            <section>
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Database className="w-4 h-4 text-primary" />
+                </span>
+                Données collectées
+              </h3>
+              <p className="text-muted-foreground mb-3 pl-10">
                 Cette application peut collecter les données suivantes :
               </p>
-              <ul className="list-disc list-inside text-muted-foreground space-y-2">
+              <ul className="list-disc list-inside text-muted-foreground space-y-2 pl-10">
                 {app.dataCollected.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
               </ul>
             </section>
 
-            <section className="mb-8">
-              <h3 className="text-lg font-medium mb-3">Permissions requises</h3>
-              <p className="text-muted-foreground leading-relaxed mb-3">
+            <section>
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Key className="w-4 h-4 text-primary" />
+                </span>
+                Permissions requises
+              </h3>
+              <p className="text-muted-foreground mb-3 pl-10">
                 L'application peut demander les permissions suivantes :
               </p>
-              <ul className="list-disc list-inside text-muted-foreground space-y-2">
+              <ul className="list-disc list-inside text-muted-foreground space-y-2 pl-10">
                 {app.permissions.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
               </ul>
             </section>
 
-            <section className="mb-8">
-              <h3 className="text-lg font-medium mb-3">Utilisation des données</h3>
-              <p className="text-muted-foreground leading-relaxed">
+            <section>
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Shield className="w-4 h-4 text-primary" />
+                </span>
+                Utilisation des données
+              </h3>
+              <p className="text-muted-foreground leading-relaxed pl-10">
                 Les données collectées sont utilisées exclusivement pour fournir et améliorer les fonctionnalités 
                 de l'application. Nous ne vendons pas vos données personnelles à des tiers.
               </p>
             </section>
 
-            <section className="mb-8">
-              <h3 className="text-lg font-medium mb-3">Stockage et sécurité</h3>
-              <p className="text-muted-foreground leading-relaxed">
+            <section>
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Shield className="w-4 h-4 text-primary" />
+                </span>
+                Stockage et sécurité
+              </h3>
+              <p className="text-muted-foreground leading-relaxed pl-10">
                 Vos données sont stockées de manière sécurisée sur des serveurs protégés. Nous utilisons 
                 le chiffrement pour protéger les données sensibles en transit et au repos.
               </p>
             </section>
 
-            <section className="mb-8">
-              <h3 className="text-lg font-medium mb-3">Conservation des données</h3>
-              <p className="text-muted-foreground leading-relaxed">
+            <section>
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Clock className="w-4 h-4 text-primary" />
+                </span>
+                Conservation des données
+              </h3>
+              <p className="text-muted-foreground leading-relaxed pl-10">
                 Nous conservons vos données aussi longtemps que votre compte est actif ou que nécessaire 
                 pour vous fournir nos services. Vous pouvez demander la suppression de vos données à tout moment.
               </p>
             </section>
 
-            <section className="mb-8">
-              <h3 className="text-lg font-medium mb-3">Vos droits</h3>
-              <p className="text-muted-foreground leading-relaxed mb-3">
+            <section>
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <UserCheck className="w-4 h-4 text-primary" />
+                </span>
+                Vos droits
+              </h3>
+              <p className="text-muted-foreground mb-3 pl-10">
                 Conformément au RGPD et aux lois applicables, vous avez le droit de :
               </p>
-              <ul className="list-disc list-inside text-muted-foreground space-y-2">
+              <ul className="list-disc list-inside text-muted-foreground space-y-2 pl-10">
                 <li>Accéder à vos données personnelles</li>
                 <li>Rectifier les données inexactes</li>
                 <li>Demander la suppression de vos données</li>
@@ -171,30 +218,43 @@ export default function AppPrivacy() {
               </ul>
             </section>
 
-            <section className="mb-8">
-              <h3 className="text-lg font-medium mb-3">Suppression du compte</h3>
-              <p className="text-muted-foreground leading-relaxed">
+            <section>
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Trash2 className="w-4 h-4 text-primary" />
+                </span>
+                Suppression du compte
+              </h3>
+              <p className="text-muted-foreground leading-relaxed pl-10">
                 Pour supprimer votre compte et toutes les données associées, envoyez un email à 
-                <a href="mailto:support@vexarlabs.com" className="text-foreground hover:underline ml-1">support@vexarlabs.com</a> 
+                <a href="mailto:support@vexarlabs.com" className="text-primary hover:underline mx-1">support@vexarlabs.com</a> 
                 avec l'objet "Suppression de compte - {app.name}". Votre demande sera traitée dans un délai de 30 jours.
               </p>
             </section>
 
-            <section className="mb-8">
-              <h3 className="text-lg font-medium mb-3">Contact</h3>
-              <p className="text-muted-foreground leading-relaxed">
+            <section className="p-6 bg-secondary/50 rounded-xl">
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <Mail className="w-5 h-5 text-primary" />
+                Contact
+              </h3>
+              <p className="text-muted-foreground mb-4">
                 Pour toute question concernant cette politique de confidentialité :
               </p>
-              <div className="mt-3 text-muted-foreground">
+              <div className="text-muted-foreground space-y-1">
                 <p><strong className="text-foreground">VexarLabs</strong></p>
-                <p>Email : <a href="mailto:contact@vexarlabs.com" className="text-foreground hover:underline">contact@vexarlabs.com</a></p>
-                <p>Support : <a href="mailto:support@vexarlabs.com" className="text-foreground hover:underline">support@vexarlabs.com</a></p>
+                <p>Email : <a href="mailto:contact@vexarlabs.com" className="text-primary hover:underline">contact@vexarlabs.com</a></p>
+                <p>Support : <a href="mailto:support@vexarlabs.com" className="text-primary hover:underline">support@vexarlabs.com</a></p>
               </div>
             </section>
 
-            <section className="mb-8">
-              <h3 className="text-lg font-medium mb-3">Modifications</h3>
-              <p className="text-muted-foreground leading-relaxed">
+            <section>
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <RefreshCw className="w-4 h-4 text-primary" />
+                </span>
+                Modifications
+              </h3>
+              <p className="text-muted-foreground leading-relaxed pl-10">
                 Nous pouvons mettre à jour cette politique de confidentialité de temps en temps. 
                 Nous vous informerons de tout changement important via l'application ou par email.
               </p>
