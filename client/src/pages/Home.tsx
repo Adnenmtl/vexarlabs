@@ -7,7 +7,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
-import { ExternalLink, Smartphone, Globe, Sparkles } from "lucide-react";
+import { ExternalLink, Smartphone, Globe, Sparkles, X } from "lucide-react";
+import { useState } from "react";
 
 const apps = [
   {
@@ -45,6 +46,7 @@ const apps = [
 ];
 
 export default function Home() {
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -134,7 +136,8 @@ export default function Home() {
                               key={index}
                               src={screenshot} 
                               alt={`Capture d'écran ${index + 1} de ${app.name}`}
-                              className="w-24 md:w-28 h-auto rounded-lg shadow-md flex-shrink-0"
+                              className="w-24 md:w-28 h-auto rounded-lg shadow-md flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity"
+                              onClick={() => setLightboxImage(screenshot)}
                             />
                           ))}
                         </div>
@@ -167,6 +170,27 @@ export default function Home() {
       </main>
 
       <Footer />
+
+      {/* Lightbox pour agrandir les captures d'écran */}
+      {lightboxImage && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setLightboxImage(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            onClick={() => setLightboxImage(null)}
+          >
+            <X className="w-8 h-8" />
+          </button>
+          <img 
+            src={lightboxImage} 
+            alt="Capture d'écran agrandie"
+            className="max-w-full max-h-full object-contain rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }
