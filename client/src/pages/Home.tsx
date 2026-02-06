@@ -13,7 +13,7 @@ const apps = [
   {
     id: "ronde-securite-taxi",
     name: "Ronde de Sécurité Taxi",
-    description: "Application mobile de gestion des rondes de sécurité pour chauffeurs de taxi, conforme aux normes de la SAAQ. Checklist complète de 15 points, historique des rondes, rapports par email, mode hors-ligne.",
+    description: "Application mobile de gestion des rondes de sécurité pour chauffeurs de taxi, conforme aux normes de la SAAQ. Checklist complète de 19 points (+ 6 points Taxi Adapté), historique des rondes, rapports par email, mode hors-ligne.",
     platforms: ["iOS", "Android"],
     icon: Smartphone,
     color: "bg-emerald-500",
