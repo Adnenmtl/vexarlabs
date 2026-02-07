@@ -38,11 +38,11 @@ export default function Header() {
       style={{ top: 0 }}
     >
       <div className="container flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <Link href="/" className="hover:opacity-80 transition-opacity">
           <img 
             src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/IUteagfTanLpZpus.png" 
-            alt="VexarLabs Logo" 
-            className="h-12 w-auto object-contain"
+            alt="VexarLabs" 
+            className="w-8 h-8 object-contain"
           />
         </Link>
         <nav className="flex items-center gap-8">
