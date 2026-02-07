@@ -13,11 +13,11 @@ export default function Header() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Si on scroll vers le bas et qu'on a dépassé 100px, cacher le header
+      // Hide header when scrolling down past 100px
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setIsVisible(false);
       } 
-      // Si on scroll vers le haut, montrer le header
+      // Show header when scrolling up
       else if (currentScrollY < lastScrollY) {
         setIsVisible(true);
       }
@@ -46,11 +46,14 @@ export default function Header() {
           />
         </Link>
         <nav className="flex items-center gap-6">
-          <Link href="/#apps" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-            Applications
+          <Link href="/#products" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            Products
           </Link>
-          <Link href="/support" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-            Support
+          <Link href="/#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            About
+          </Link>
+          <Link href="/#contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            Contact
           </Link>
         </nav>
       </div>

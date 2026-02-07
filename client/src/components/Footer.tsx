@@ -21,14 +21,14 @@ export default function Footer() {
           </div>
           <nav className="flex items-center gap-6">
             <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Confidentialité
+              Privacy
             </Link>
             <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Conditions
+              Terms
             </Link>
-            <Link href="/support" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Support
-            </Link>
+            <a href="mailto:contact@vexarlabs.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              Contact
+            </a>
           </nav>
         </div>
       </div>

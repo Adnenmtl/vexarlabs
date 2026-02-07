@@ -10,6 +10,8 @@ import TermsOfService from "./pages/TermsOfService";
 import Support from "./pages/Support";
 import AppPrivacy from "./pages/AppPrivacy";
 import RondeSecuriteTaxi from "./pages/RondeSecuriteTaxi";
+import FMarabia from "./pages/app/FMarabia";
+import Influvo from "./pages/app/Influvo";
 
 function Router() {
   return (
@@ -19,6 +21,8 @@ function Router() {
       <Route path="/terms" component={TermsOfService} />
       <Route path="/support" component={Support} />
       <Route path="/app/ronde-securite-taxi" component={RondeSecuriteTaxi} />
+      <Route path="/app/fmarabia" component={FMarabia} />
+      <Route path="/app/influvo" component={Influvo} />
       <Route path="/app/:appId/privacy" component={AppPrivacy} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
