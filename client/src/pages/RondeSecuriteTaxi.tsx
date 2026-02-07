@@ -1,235 +1,268 @@
 /*
-  Ronde de Sécurité Taxi - Page dédiée
+  Ronde Sécurité Taxi Québec - Dedicated Page
   
-  Page complète avec description détaillée, vidéo de démonstration, FAQ et badges stores
+  Complete page with detailed description, demo video, FAQ and store badges
+  Creative & Bold Design with animations
 */
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
-import { ArrowLeft, CheckCircle2, Shield, Clock, FileText, Wifi, Smartphone } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Shield, Clock, FileText, Wifi, Smartphone, Download } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function RondeSecuriteTaxi() {
+  const featuresAnim = useScrollAnimation({ threshold: 0.1 });
+  const checkpointsAnim = useScrollAnimation({ threshold: 0.1 });
+  const faqAnim = useScrollAnimation({ threshold: 0.1 });
+  const contactAnim = useScrollAnimation({ threshold: 0.2 });
+  
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-slate-50">
       <Header />
       
-      <main className="flex-1">
+      <main className="flex-1 pt-20">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-amber-50 to-amber-100 py-16">
-          <div className="container">
-            <Link href="/" className="inline-flex items-center gap-2 text-amber-700 hover:text-amber-900 mb-6 transition-colors">
+        <section className="py-16 bg-gradient-to-br from-orange-500 to-red-600 text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzR2LTRoLTJ2NGgtNHYyaDR2NGgydi00aDR2LTJoLTR6bTAtMzBWMGgtMnY0aC00djJoNHY0aDJWNmg0VjRoLTR6TTYgMzR2LTRINHY0SDB2Mmg0djRoMnYtNGg0di0ySDZ6TTYgNFYwSDR2NEgwdjJoNHY0aDJWNmg0VjRINnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20"></div>
+          
+          <div className="container relative z-10">
+            <Link href="/" className="inline-flex items-center gap-2 text-sm text-orange-100 hover:text-white transition-colors mb-8">
               <ArrowLeft className="w-4 h-4" />
-              Retour à l'accueil
+              Back to Products
             </Link>
             
-            <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="flex flex-col md:flex-row gap-8 items-start">
+              <img 
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/xaZHlbEgJmsATdJf.png" 
+                alt="Ronde Sécurité Taxi icon"
+                className="w-28 h-28 rounded-3xl shadow-2xl flex-shrink-0 object-cover border-4 border-white/20"
+              />
               <div className="flex-1">
-                <div className="flex items-center gap-4 mb-4">
-                  <img 
-                    src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/xaZHlbEgJmsATdJf.png" 
-                    alt="Icône Ronde de Sécurité Taxi"
-                    className="w-20 h-20 rounded-2xl shadow-lg"
-                  />
-                  <div>
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-                      Ronde de Sécurité Taxi
-                    </h1>
-                    <p className="text-amber-700 font-medium mt-1">Conforme SAAQ</p>
-                  </div>
+                <div className="mb-3">
+                  <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">Mobility & Safety Tech</span>
+                  <span className="text-sm text-orange-100 ml-2">Québec (B2B – Taxi industry)</span>
                 </div>
-                <p className="text-xl text-gray-700 mb-6">
-                  Application mobile de gestion des rondes de sécurité pour chauffeurs de taxi au Québec. 
-                  Simplifiez vos inspections quotidiennes obligatoires avec notre checklist complète.
+                <h1 className="text-5xl font-bold mb-4">Ronde Sécurité Taxi Québec</h1>
+                <p className="text-xl text-orange-50 mb-6 max-w-2xl">
+                  Digital security patrol management application designed for taxi drivers and fleet operators. 
+                  Streamline your mandatory daily inspections with our comprehensive checklist.
                 </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-lg text-sm font-medium">iOS</span>
+                  <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-lg text-sm font-medium">Android</span>
+                  <span className="px-3 py-1 bg-white text-orange-600 rounded-lg text-sm font-bold">Advanced Development / Deployment Phase</span>
+                </div>
                 
-                {/* Badges stores - Placeholder */}
-                <div className="flex gap-4 mb-4">
+                {/* Store badges */}
+                <div className="flex flex-wrap gap-4">
                   <a 
                     href="#" 
-                    className="inline-block bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+                    className="inline-flex items-center gap-3 px-6 py-3 bg-white text-orange-600 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all"
                   >
-                    <div className="flex items-center gap-2">
-                      <Smartphone className="w-5 h-5" />
-                      <div className="text-left">
-                        <div className="text-xs">Télécharger sur</div>
-                        <div className="text-sm font-semibold">App Store</div>
-                      </div>
+                    <Download className="w-5 h-5" />
+                    <div className="text-left">
+                      <div className="text-xs">Download on</div>
+                      <div className="text-sm font-semibold">App Store</div>
                     </div>
                   </a>
                   <a 
                     href="#" 
-                    className="inline-block bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+                    className="inline-flex items-center gap-3 px-6 py-3 bg-white text-orange-600 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all"
                   >
-                    <div className="flex items-center gap-2">
-                      <Smartphone className="w-5 h-5" />
-                      <div className="text-left">
-                        <div className="text-xs">Disponible sur</div>
-                        <div className="text-sm font-semibold">Google Play</div>
-                      </div>
+                    <Download className="w-5 h-5" />
+                    <div className="text-left">
+                      <div className="text-xs">Get it on</div>
+                      <div className="text-sm font-semibold">Google Play</div>
                     </div>
                   </a>
                 </div>
-                <p className="text-sm text-gray-600">Disponible sur iOS et Android</p>
-              </div>
-              
-              <div className="flex-1">
-                <img 
-                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/eGTfKRmQxWBCYkVN.png" 
-                  alt="Capture d'écran de l'application"
-                  className="w-full max-w-sm mx-auto rounded-2xl shadow-2xl"
-                />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Vidéo de démonstration */}
-        <section className="py-16 bg-white">
+        {/* Screenshots Gallery */}
+        <section className="py-20 bg-white">
           <div className="container">
-            <h2 className="text-3xl font-bold text-center mb-8">Vidéo de démonstration</h2>
+            <h2 className="text-4xl font-bold text-center mb-12">
+              App <span className="text-gradient-sunset">Screenshots</span>
+            </h2>
+            <div className="flex flex-wrap justify-center gap-6">
+              {[
+                "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/xLWDDYoUpTABhfWp.png",
+                "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/EVLvPWqvQAXjYPld.png",
+                "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/VBjeviPOeFuNsPjP.png",
+              ].map((screenshot, index) => (
+                <img 
+                  key={index}
+                  src={screenshot} 
+                  alt={`App screenshot ${index + 1}`}
+                  className="w-64 h-auto rounded-2xl shadow-2xl hover:scale-105 transition-transform"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Demo Video */}
+        <section className="py-20 bg-slate-50">
+          <div className="container">
+            <h2 className="text-4xl font-bold text-center mb-12">
+              Demo <span className="text-gradient-sunset">Video</span>
+            </h2>
             <div className="max-w-4xl mx-auto">
-              <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+              <div className="aspect-video bg-slate-200 rounded-2xl overflow-hidden shadow-2xl">
                 <iframe
                   className="w-full h-full"
                   src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                  title="Démonstration Ronde de Sécurité Taxi"
+                  title="Ronde Sécurité Taxi Demo"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
               </div>
-              <p className="text-center text-sm text-gray-600 mt-4">
-                Découvrez comment utiliser l'application en moins de 2 minutes
+              <p className="text-center text-sm text-slate-600 mt-4">
+                Discover how to use the app in less than 2 minutes
               </p>
             </div>
           </div>
         </section>
 
-        {/* Fonctionnalités principales */}
-        <section className="py-16 bg-gray-50">
+        {/* Key Features */}
+        <section className="py-20 bg-white">
           <div className="container">
-            <h2 className="text-3xl font-bold text-center mb-12">Fonctionnalités principales</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
-                  <CheckCircle2 className="w-6 h-6 text-amber-600" />
+            <h2 className="text-4xl font-bold text-center mb-12">
+              Key <span className="text-gradient-sunset">Features</span>
+            </h2>
+            <div 
+              ref={featuresAnim.ref}
+              className={`grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto ${featuresAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
+            >
+              <div className="p-8 bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border-2 border-orange-100 hover:border-orange-300 hover:shadow-lg transition-all">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mb-4 shadow-lg">
+                  <CheckCircle2 className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Checklist complète</h3>
-                <p className="text-gray-600">
-                  19 points de vérification standard + 6 points supplémentaires pour Taxi Adapté. 
-                  Conforme aux exigences de la SAAQ.
+                <h3 className="font-bold text-xl mb-2">Complete Checklist</h3>
+                <p className="text-slate-600">
+                  19 standard checkpoints + 6 additional points for Adapted Taxi. 
+                  Compliant with SAAQ requirements.
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
-                  <Clock className="w-6 h-6 text-amber-600" />
+              <div className="p-8 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl border-2 border-red-100 hover:border-red-300 hover:shadow-lg transition-all">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center mb-4 shadow-lg">
+                  <Clock className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Historique des rondes</h3>
-                <p className="text-gray-600">
-                  Consultez toutes vos inspections passées avec date, heure et résultats détaillés. 
-                  Traçabilité complète garantie.
+                <h3 className="font-bold text-xl mb-2">Patrol History</h3>
+                <p className="text-slate-600">
+                  View all past inspections with date, time, and detailed results. 
+                  Complete traceability guaranteed.
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
-                  <FileText className="w-6 h-6 text-amber-600" />
+              <div className="p-8 bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border-2 border-orange-100 hover:border-orange-300 hover:shadow-lg transition-all">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mb-4 shadow-lg">
+                  <FileText className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Rapports par email</h3>
-                <p className="text-gray-600">
-                  Envoi automatique d'un rapport professionnel PDF incluant toutes les informations 
-                  du chauffeur, du véhicule et des vérifications.
+                <h3 className="font-bold text-xl mb-2">Email Reports</h3>
+                <p className="text-slate-600">
+                  Automatic sending of professional PDF reports including all driver, 
+                  vehicle, and inspection information.
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
-                  <Shield className="w-6 h-6 text-amber-600" />
+              <div className="p-8 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl border-2 border-red-100 hover:border-red-300 hover:shadow-lg transition-all">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center mb-4 shadow-lg">
+                  <Shield className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Gestion des paramètres</h3>
-                <p className="text-gray-600">
-                  Sauvegardez vos informations personnelles et celles de votre véhicule pour un 
-                  remplissage automatique lors des prochaines rondes.
+                <h3 className="font-bold text-xl mb-2">Settings Management</h3>
+                <p className="text-slate-600">
+                  Save your personal information and vehicle details for automatic 
+                  filling during future patrols.
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
-                  <Wifi className="w-6 h-6 text-amber-600" />
+              <div className="p-8 bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border-2 border-orange-100 hover:border-orange-300 hover:shadow-lg transition-all">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mb-4 shadow-lg">
+                  <Wifi className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Mode hors-ligne</h3>
-                <p className="text-gray-600">
-                  Toutes les données sont stockées localement. Aucune connexion internet requise 
-                  pour effectuer les rondes.
+                <h3 className="font-bold text-xl mb-2">Offline Mode</h3>
+                <p className="text-slate-600">
+                  All data is stored locally. No internet connection required 
+                  to perform patrols.
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
-                  <Smartphone className="w-6 h-6 text-amber-600" />
+              <div className="p-8 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl border-2 border-red-100 hover:border-red-300 hover:shadow-lg transition-all">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center mb-4 shadow-lg">
+                  <Smartphone className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Interface intuitive</h3>
-                <p className="text-gray-600">
-                  Design simple et ergonomique. Effectuez vos inspections quotidiennes en quelques 
-                  minutes seulement.
+                <h3 className="font-bold text-xl mb-2">Intuitive Interface</h3>
+                <p className="text-slate-600">
+                  Simple and ergonomic design. Complete your daily inspections 
+                  in just a few minutes.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Points de vérification */}
-        <section className="py-16 bg-white">
+        {/* Checkpoints */}
+        <section className="py-20 bg-slate-50">
           <div className="container">
-            <h2 className="text-3xl font-bold text-center mb-12">Points de vérification</h2>
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-amber-50 p-8 rounded-lg shadow-md mb-8">
-                <h3 className="text-2xl font-semibold mb-6 text-amber-900">19 points standard</h3>
+            <h2 className="text-4xl font-bold text-center mb-12">
+              Inspection <span className="text-gradient-sunset">Checkpoints</span>
+            </h2>
+            <div 
+              ref={checkpointsAnim.ref}
+              className={`max-w-4xl mx-auto space-y-8 ${checkpointsAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
+            >
+              <div className="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-2xl shadow-xl border-2 border-orange-200">
+                <h3 className="text-2xl font-bold mb-6 text-orange-900">19 Standard Points</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[
-                    "Permis de conduire valide",
-                    "Autorisation de chauffeur de taxi",
-                    "Certificat d'immatriculation",
-                    "Assurance valide",
-                    "Pneus - Pression",
-                    "Pneus - Usure/Dommages",
-                    "Phares",
-                    "Feux arrière et freinage",
-                    "Clignotants et feux de détresse",
-                    "Pare-brise",
-                    "Essuie-glaces",
-                    "Rétroviseurs",
-                    "Portes et carrosserie",
-                    "Ceintures de sécurité",
-                    "Klaxon",
-                    "Voyants du tableau de bord",
-                    "Freins",
-                    "Direction",
-                    "Niveau d'huile moteur"
+                    "Valid driver's license",
+                    "Taxi driver authorization",
+                    "Registration certificate",
+                    "Valid insurance",
+                    "Tires - Pressure",
+                    "Tires - Wear/Damage",
+                    "Headlights",
+                    "Tail and brake lights",
+                    "Turn signals and hazard lights",
+                    "Windshield",
+                    "Wipers",
+                    "Mirrors",
+                    "Doors and body",
+                    "Seat belts",
+                    "Horn",
+                    "Dashboard warning lights",
+                    "Brakes",
+                    "Steering",
+                    "Engine oil level"
                   ].map((point, index) => (
                     <div key={index} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{point}</span>
+                      <CheckCircle2 className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-slate-700">{point}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-blue-50 p-8 rounded-lg shadow-md">
-                <h3 className="text-2xl font-semibold mb-6 text-blue-900">6 points Taxi Adapté</h3>
+              <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-2xl shadow-xl border-2 border-cyan-200">
+                <h3 className="text-2xl font-bold mb-6 text-cyan-900">6 Adapted Taxi Points</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[
-                    "Rampe d'accès",
-                    "Système d'arrimage",
-                    "Ceintures de sécurité adaptées",
-                    "Espace intérieur dégagé",
-                    "Signalisation Taxi Adapté",
-                    "Équipements d'assistance"
+                    "Access ramp",
+                    "Securing system",
+                    "Adapted seat belts",
+                    "Clear interior space",
+                    "Adapted Taxi signage",
+                    "Assistance equipment"
                   ].map((point, index) => (
                     <div key={index} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{point}</span>
+                      <CheckCircle2 className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-slate-700">{point}</span>
                     </div>
                   ))}
                 </div>
@@ -239,101 +272,79 @@ export default function RondeSecuriteTaxi() {
         </section>
 
         {/* FAQ */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-20 bg-white">
           <div className="container">
-            <h2 className="text-3xl font-bold text-center mb-12">Questions fréquentes</h2>
-            <div className="max-w-3xl mx-auto space-y-6">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2">L'application est-elle conforme aux normes de la SAAQ ?</h3>
-                <p className="text-gray-600">
-                  Oui, l'application respecte toutes les exigences de la SAAQ pour les vérifications 
-                  sommaires quotidiennes des véhicules taxi. La checklist comprend les 19 points 
-                  obligatoires ainsi que les 6 points supplémentaires pour les taxis adaptés.
-                </p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2">Ai-je besoin d'une connexion internet ?</h3>
-                <p className="text-gray-600">
-                  Non, l'application fonctionne entièrement hors-ligne. Toutes vos données sont 
-                  stockées localement sur votre appareil. Une connexion internet est uniquement 
-                  nécessaire pour l'envoi optionnel des rapports par email.
-                </p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2">Mes données sont-elles sécurisées ?</h3>
-                <p className="text-gray-600">
-                  Absolument. Toutes vos données restent sur votre appareil et ne sont jamais 
-                  partagées avec des tiers. Nous ne collectons aucune information personnelle. 
-                  Consultez notre <Link href="/app/ronde-securite-taxi/privacy" className="text-amber-600 hover:underline">politique de confidentialité</Link> pour plus de détails.
-                </p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2">Puis-je consulter l'historique de mes rondes ?</h3>
-                <p className="text-gray-600">
-                  Oui, l'application conserve un historique complet de toutes vos inspections avec 
-                  la date, l'heure, la durée et les résultats détaillés de chaque point de vérification. 
-                  Vous pouvez consulter cet historique à tout moment.
-                </p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2">Comment fonctionne l'envoi des rapports par email ?</h3>
-                <p className="text-gray-600">
-                  Après chaque ronde, vous pouvez générer un rapport PDF professionnel et l'envoyer 
-                  automatiquement par email à l'adresse de votre choix. Le rapport inclut toutes les 
-                  informations du chauffeur, du véhicule et le détail de chaque point vérifié.
-                </p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2">L'application est-elle gratuite ?</h3>
-                <p className="text-gray-600">
-                  Oui, l'application Ronde de Sécurité Taxi est entièrement gratuite, sans publicité 
-                  ni achat intégré. Notre objectif est d'aider les chauffeurs de taxi à respecter 
-                  facilement les normes de sécurité de la SAAQ.
-                </p>
-              </div>
+            <h2 className="text-4xl font-bold text-center mb-12">
+              Frequently Asked <span className="text-gradient-sunset">Questions</span>
+            </h2>
+            <div 
+              ref={faqAnim.ref}
+              className={`max-w-3xl mx-auto space-y-6 ${faqAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
+            >
+              {[
+                { 
+                  q: "Is the app free?", 
+                  a: "Yes, Ronde Sécurité Taxi is completely free to download and use. No hidden fees or subscriptions." 
+                },
+                { 
+                  q: "Is it compliant with SAAQ regulations?", 
+                  a: "Absolutely. The app includes all mandatory checkpoints required by the SAAQ for taxi security patrols in Québec." 
+                },
+                { 
+                  q: "Do I need internet to use the app?", 
+                  a: "No. All data is stored locally on your device. You can perform patrols completely offline. Internet is only needed to send email reports." 
+                },
+                { 
+                  q: "Can I use it for multiple vehicles?", 
+                  a: "Yes. You can save information for multiple vehicles and switch between them easily in the settings." 
+                },
+                { 
+                  q: "How long are patrol records kept?", 
+                  a: "All patrol records are stored indefinitely on your device. You can export or delete them at any time." 
+                },
+                { 
+                  q: "Is there support for Adapted Taxi?", 
+                  a: "Yes. The app includes 6 additional checkpoints specifically for Adapted Taxi vehicles, in addition to the 19 standard points." 
+                },
+                { 
+                  q: "Can I get technical support?", 
+                  a: "Of course. Contact us at contact@vexarlabs.com for any questions or technical issues." 
+                }
+              ].map((faq, index) => (
+                <div key={index} className="p-6 bg-slate-50 rounded-xl border-2 border-slate-100 hover:border-orange-200 transition-all">
+                  <h3 className="font-bold text-lg mb-2">{faq.q}</h3>
+                  <p className="text-slate-600">{faq.a}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-amber-500 to-amber-600 text-white">
-          <div className="container text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Prêt à simplifier vos rondes de sécurité ?
-            </h2>
-            <p className="text-xl mb-8 text-amber-50">
-              Téléchargez l'application gratuitement dès aujourd'hui
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="#" 
-                className="inline-block bg-white text-amber-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-semibold shadow-lg"
-              >
-                <div className="flex items-center gap-3 justify-center">
-                  <Smartphone className="w-6 h-6" />
-                  <div className="text-left">
-                    <div className="text-xs text-gray-600">Télécharger sur</div>
-                    <div className="text-lg">App Store</div>
-                  </div>
-                </div>
-              </a>
-              <a 
-                href="#" 
-                className="inline-block bg-white text-amber-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-semibold shadow-lg"
-              >
-                <div className="flex items-center gap-3 justify-center">
-                  <Smartphone className="w-6 h-6" />
-                  <div className="text-left">
-                    <div className="text-xs text-gray-600">Disponible sur</div>
-                    <div className="text-lg">Google Play</div>
-                  </div>
-                </div>
-              </a>
+        {/* Contact */}
+        <section className="py-20 bg-gradient-to-br from-orange-500 to-red-600 text-white">
+          <div className="container">
+            <div 
+              ref={contactAnim.ref}
+              className={`max-w-xl mx-auto text-center ${contactAnim.isVisible ? 'animate-scale-in' : 'opacity-0-init scale-95-init'}`}
+            >
+              <h2 className="text-4xl font-bold mb-4">Need Help?</h2>
+              <p className="text-xl text-orange-50 mb-8">
+                Questions about the app? Need technical support? We're here to help.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href="mailto:contact@vexarlabs.com" 
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-orange-600 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all"
+                >
+                  Contact Support
+                </a>
+                <Link 
+                  href="/privacy"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white rounded-xl font-bold hover:bg-white/20 transition-all"
+                >
+                  Privacy Policy
+                </Link>
+              </div>
             </div>
           </div>
         </section>

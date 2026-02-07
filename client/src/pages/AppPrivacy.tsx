@@ -9,53 +9,53 @@ import { ArrowLeft, Shield, Database, Key, Clock, UserCheck, Trash2, Mail, Refre
 
 const appData: Record<string, { name: string; description: string; dataCollected: string[]; permissions: string[]; color: string }> = {
   "ronde-securite-taxi": {
-    name: "Ronde de Sécurité Taxi",
-    description: "Application mobile de gestion des rondes de sécurité pour chauffeurs de taxi, conforme aux normes de la SAAQ (Société de l'assurance automobile du Québec). Facilite la vérification sommaire quotidienne obligatoire avec checklist de 19 points standard + 6 points Taxi Adapté.",
+    name: "Ronde Sécurité Taxi Québec",
+    description: "Mobile security patrol management application for taxi drivers, compliant with SAAQ (Société de l'assurance automobile du Québec) standards. Facilitates mandatory daily inspections with a checklist of 19 standard points + 6 Adapted Taxi points.",
     dataCollected: [
-      "Informations du chauffeur (nom, numéro de permis de conduire, numéro de permis de chauffeur autorisé)",
-      "Informations du véhicule (marque, modèle, immatriculation, kilométrage)",
-      "Résultats des vérifications (date, heure, état de chaque point, statut global)",
-      "Adresse email destinataire (optionnelle, pour envoi automatique des rapports)",
-      "Données techniques (version de l'application, type d'appareil, langue)",
+      "Driver information (name, driver's license number, authorized taxi driver permit number)",
+      "Vehicle information (make, model, registration, mileage)",
+      "Inspection results (date, time, status of each checkpoint, overall status)",
+      "Recipient email address (optional, for automatic report sending)",
+      "Technical data (app version, device type, language)",
     ],
     permissions: [
-      "Stockage local (pour sauvegarder l'historique des rondes)",
-      "Accès au client email (pour envoi optionnel des rapports par email)",
+      "Local storage (to save patrol history)",
+      "Email client access (for optional email report sending)",
     ],
     color: "bg-amber-500",
   },
   "fmarabia": {
     name: "FMarabia",
-    description: "Application FMarabia.app - Votre solution mobile innovante.",
+    description: "FMarabia.app - Your innovative mobile streaming solution for Arabic radio content.",
     dataCollected: [
-      "Informations du compte utilisateur",
-      "Données d'utilisation de l'application",
-      "Préférences utilisateur",
-      "Identifiants de l'appareil",
+      "User account information",
+      "App usage data",
+      "User preferences",
+      "Device identifiers",
     ],
     permissions: [
-      "Notifications push",
-      "Accès réseau",
-      "Stockage local",
+      "Push notifications",
+      "Network access",
+      "Local storage",
     ],
     color: "bg-blue-500",
   },
   "influvo": {
     name: "Influvo",
-    description: "Influvo.ai - Plateforme intelligente alimentée par l'IA.",
+    description: "Influvo.ai - AI-powered intelligent platform for content creators.",
     dataCollected: [
-      "Informations du compte utilisateur",
-      "Contenu généré par l'utilisateur",
-      "Données d'utilisation et interactions avec l'IA",
-      "Préférences et paramètres",
-      "Identifiants de l'appareil",
+      "User account information",
+      "User-generated content",
+      "Usage data and AI interactions",
+      "Preferences and settings",
+      "Device identifiers",
     ],
     permissions: [
-      "Notifications push",
-      "Accès réseau",
-      "Stockage local",
-      "Caméra (si fonctionnalité utilisée)",
-      "Microphone (si fonctionnalité utilisée)",
+      "Push notifications",
+      "Network access",
+      "Local storage",
+      "Camera (if feature is used)",
+      "Microphone (if feature is used)",
     ],
     color: "bg-violet-500",
   },
@@ -71,12 +71,12 @@ export default function AppPrivacy() {
         <Header />
         <main className="flex-1 py-16">
           <div className="container max-w-3xl text-center">
-            <h1 className="text-2xl font-bold mb-4">Application non trouvée</h1>
+            <h1 className="text-2xl font-bold mb-4">Application Not Found</h1>
             <p className="text-muted-foreground mb-6">
-              La politique de confidentialité demandée n'existe pas.
+              The requested privacy policy does not exist.
             </p>
             <Link href="/" className="text-primary hover:underline font-medium">
-              Retour à l'accueil
+              Back to Home
             </Link>
           </div>
         </main>
@@ -94,7 +94,7 @@ export default function AppPrivacy() {
           <div className="mb-8">
             <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
               <ArrowLeft className="w-4 h-4" />
-              Retour aux applications
+              Back to Products
             </Link>
           </div>
 
