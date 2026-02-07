@@ -74,15 +74,11 @@ export default function Header() {
             >
               {t('nav.products')}
             </a>
-            <Link href="/about">
-              <a className="text-sm font-semibold text-slate-700 hover:text-orange-600 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all hover:after:w-full">
-                {t('nav.about')}
-              </a>
+            <Link href="/about" className="text-sm font-semibold text-slate-700 hover:text-orange-600 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all hover:after:w-full">
+              {t('nav.about')}
             </Link>
-            <Link href="/contact">
-              <a className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-coral hover:scale-105 transition-all text-sm">
-                {t('nav.contact')}
-              </a>
+            <Link href="/contact" className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-coral hover:scale-105 transition-all text-sm">
+              {t('nav.contact')}
             </Link>
             
             {/* Language Selector */}
@@ -233,21 +229,11 @@ export default function Header() {
           >
             {t('nav.products')}
           </a>
-          <Link href="/about">
-            <a 
-              onClick={handleLinkClick}
-              className="text-lg font-semibold text-slate-700 hover:text-orange-600 transition-colors py-2 border-b border-slate-100"
-            >
-              {t('nav.about')}
-            </a>
+          <Link href="/about" onClick={handleLinkClick} className="text-lg font-semibold text-slate-700 hover:text-orange-600 transition-colors py-2 border-b border-slate-100">
+            {t('nav.about')}
           </Link>
-          <Link href="/contact">
-            <a 
-              onClick={handleLinkClick}
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-coral transition-all text-base mt-4"
-            >
-              {t('nav.contact')}
-            </a>
+          <Link href="/contact" onClick={handleLinkClick} className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-coral transition-all text-base mt-4">
+            {t('nav.contact')}
           </Link>
         </div>
       </nav>

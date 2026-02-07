@@ -212,11 +212,9 @@ export default function About() {
               <p className="text-lg md:text-xl mb-8 md:mb-10 opacity-95">
                 {t('about.cta.description')}
               </p>
-              <Link href="/contact">
-                <a className="inline-flex items-center gap-2 px-8 py-4 bg-white text-orange-600 rounded-xl font-bold hover:bg-slate-100 hover:scale-105 transition-all shadow-xl text-base md:text-lg">
-                  {t('about.cta.button')}
-                  <ArrowRight className="w-5 h-5" />
-                </a>
+              <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-orange-600 rounded-xl font-bold hover:bg-slate-100 hover:scale-105 transition-all shadow-xl text-base md:text-lg">
+                {t('about.cta.button')}
+                <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
           </div>
