@@ -160,6 +160,13 @@ const translations: Record<Language, Record<string, string>> = {
     'construction.button': 'Unlock Site',
     'construction.error': 'Incorrect password. Please try again.',
     'construction.footer': 'Building practical digital solutions.',
+    
+    // 404 Page
+    'notFound.title': 'Page Not Found',
+    'notFound.description': 'Sorry, the page you are looking for doesn\'t exist. It may have been moved or deleted.',
+    'notFound.cta.home': 'Go Home',
+    'notFound.cta.back': 'Go Back',
+    'notFound.quickLinks': 'Quick Links',
   },
   fr: {
     // Header
@@ -274,5 +281,12 @@ const translations: Record<Language, Record<string, string>> = {
     'construction.button': 'Déverrouiller le site',
     'construction.error': 'Mot de passe incorrect. Veuillez réessayer.',
     'construction.footer': 'Créer des solutions numériques pratiques.',
+    
+    // 404 Page
+    'notFound.title': 'Page introuvable',
+    'notFound.description': 'Désolé, la page que vous recherchez n\'existe pas. Elle a peut-être été déplacée ou supprimée.',
+    'notFound.cta.home': 'Retour à l\'accueil',
+    'notFound.cta.back': 'Retour',
+    'notFound.quickLinks': 'Liens rapides',
   },
 };
