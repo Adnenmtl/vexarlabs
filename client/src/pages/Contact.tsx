@@ -10,6 +10,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Mail, MapPin, Clock, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -35,9 +36,25 @@ export default function Contact() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    // Simulate form submission (replace with actual API call)
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // EmailJS configuration
+      // Replace these with your actual EmailJS credentials from https://www.emailjs.com/
+      const serviceId = 'YOUR_SERVICE_ID';
+      const templateId = 'YOUR_TEMPLATE_ID';
+      const publicKey = 'YOUR_PUBLIC_KEY';
+
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company || 'N/A',
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'contact@vexarlabs.com',
+      };
+
+      // Send email via EmailJS
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
       
       // Success
       setSubmitStatus('success');
@@ -51,6 +68,7 @@ export default function Contact() {
       });
     } catch (error) {
       // Error
+      console.error('EmailJS error:', error);
       setSubmitStatus('error');
       toast.error(t('contact.form.error'));
     } finally {
