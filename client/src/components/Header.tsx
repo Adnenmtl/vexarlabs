@@ -10,9 +10,9 @@ export default function Header() {
       <div className="container flex items-center justify-between">
         <Link href="/">
           <img 
-            src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/gmgoszGOeRBvcQOr.svg" 
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/pCBMueMfEDSMWROP.svg" 
             alt="VexarLabs Logo" 
-            className="w-32 h-32 object-contain"
+            className="h-12 object-contain"
           />
         </Link>
         <nav className="flex items-center gap-6">
