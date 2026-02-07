@@ -92,6 +92,12 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem; /* Compense la hauteur du header sticky */
+    overflow-x: hidden;
+  }
+  
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 }
 
