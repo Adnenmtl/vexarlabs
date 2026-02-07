@@ -142,10 +142,10 @@ const translations: Record<Language, Record<string, string>> = {
     'tech.item3': 'Modular system architecture',
     'tech.item4': 'Automation pipelines',
     
-    // Collaboration
-    'contact.title': "Let's Collaborate",
-    'contact.description': 'VexarLabs is open to collaboration with developers, designers, transport industry professionals, digital creators, and strategic partners.',
-    'contact.cta': 'Contact us to explore partnership opportunities.',
+    // Collaboration Section (Home Page)
+    'collaboration.title': "Let's Collaborate",
+    'collaboration.description': 'VexarLabs is open to collaboration with developers, designers, transport industry professionals, digital creators, and strategic partners.',
+    'collaboration.cta': 'Contact us to explore partnership opportunities.',
     
     // Footer
     'footer.tagline': 'Building practical digital solutions.',
@@ -319,6 +319,31 @@ const translations: Record<Language, Record<string, string>> = {
     'about.cta.description': 'Whether you have a project in mind or simply want to learn more about our services, we\'d love to hear from you.',
     'about.cta.button': 'Contact Us',
     
+    // Contact Page
+    'contact.title': 'Get in Touch',
+    'contact.subtitle': 'Let\'s build something great together',
+    'contact.description': 'Have a project in mind? Want to learn more about our services? We\'d love to hear from you. Fill out the form below and we\'ll get back to you as soon as possible.',
+    'contact.form.name': 'Full Name',
+    'contact.form.name.placeholder': 'John Doe',
+    'contact.form.email': 'Email Address',
+    'contact.form.email.placeholder': 'john@example.com',
+    'contact.form.company': 'Company',
+    'contact.form.company.placeholder': 'Your Company (optional)',
+    'contact.form.subject': 'Subject',
+    'contact.form.subject.placeholder': 'How can we help you?',
+    'contact.form.message': 'Message',
+    'contact.form.message.placeholder': 'Tell us about your project or inquiry...',
+    'contact.form.submit': 'Send Message',
+    'contact.form.sending': 'Sending...',
+    'contact.form.success': 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.',
+    'contact.form.error': 'Oops! Something went wrong. Please try again or email us directly.',
+    'contact.info.title': 'Contact Information',
+    'contact.info.email': 'Email',
+    'contact.info.location': 'Location',
+    'contact.info.location.value': 'Québec, Canada',
+    'contact.info.response': 'Response Time',
+    'contact.info.response.value': 'Within 24-48 hours',
+    
     // 404 Page
     'notFound.title': 'Page Not Found',
     'notFound.description': 'Sorry, the page you are looking for doesn\'t exist. It may have been moved or deleted.',
@@ -421,10 +446,10 @@ const translations: Record<Language, Record<string, string>> = {
     'tech.item3': 'Architecture système modulaire',
     'tech.item4': 'Pipelines d\'automatisation',
     
-    // Collaboration
-    'contact.title': 'Collaborons ensemble',
-    'contact.description': 'VexarLabs est ouvert à la collaboration avec les développeurs, designers, professionnels de l\'industrie du transport, créateurs numériques et partenaires stratégiques.',
-    'contact.cta': 'Contactez-nous pour explorer les opportunités de partenariat.',
+    // Collaboration Section (Home Page)
+    'collaboration.title': 'Collaborons ensemble',
+    'collaboration.description': 'VexarLabs est ouvert à la collaboration avec les développeurs, designers, professionnels de l\'industrie du transport, créateurs numériques et partenaires stratégiques.',
+    'collaboration.cta': 'Contactez-nous pour explorer les opportunités de partenariat.',
     
     // Footer
     'footer.tagline': 'Créer des solutions numériques pratiques.',
@@ -597,6 +622,31 @@ const translations: Record<Language, Record<string, string>> = {
     'about.cta.title': 'Prêt à collaborer ?',
     'about.cta.description': 'Que vous ayez un projet en tête ou que vous souhaitiez simplement en savoir plus sur nos services, nous serions ravis de vous entendre.',
     'about.cta.button': 'Nous contacter',
+    
+    // Contact Page
+    'contact.title': 'Contactez-nous',
+    'contact.subtitle': 'Construisons quelque chose de grand ensemble',
+    'contact.description': 'Vous avez un projet en tête ? Vous voulez en savoir plus sur nos services ? Nous serions ravis de vous entendre. Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.',
+    'contact.form.name': 'Nom complet',
+    'contact.form.name.placeholder': 'Jean Dupont',
+    'contact.form.email': 'Adresse courriel',
+    'contact.form.email.placeholder': 'jean@exemple.com',
+    'contact.form.company': 'Entreprise',
+    'contact.form.company.placeholder': 'Votre entreprise (optionnel)',
+    'contact.form.subject': 'Sujet',
+    'contact.form.subject.placeholder': 'Comment pouvons-nous vous aider ?',
+    'contact.form.message': 'Message',
+    'contact.form.message.placeholder': 'Parlez-nous de votre projet ou de votre demande...',
+    'contact.form.submit': 'Envoyer le message',
+    'contact.form.sending': 'Envoi en cours...',
+    'contact.form.success': 'Merci ! Votre message a été envoyé avec succès. Nous vous répondrons bientôt.',
+    'contact.form.error': 'Oups ! Une erreur s\'est produite. Veuillez réessayer ou nous contacter directement par courriel.',
+    'contact.info.title': 'Informations de contact',
+    'contact.info.email': 'Courriel',
+    'contact.info.location': 'Localisation',
+    'contact.info.location.value': 'Québec, Canada',
+    'contact.info.response': 'Délai de réponse',
+    'contact.info.response.value': 'Sous 24-48 heures',
     
     // 404 Page
     'notFound.title': 'Page introuvable',

@@ -79,12 +79,11 @@ export default function Header() {
                 {t('nav.about')}
               </a>
             </Link>
-            <a 
-              href="/#contact" 
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-coral hover:scale-105 transition-all text-sm"
-            >
-              {t('nav.contact')}
-            </a>
+            <Link href="/contact">
+              <a className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-coral hover:scale-105 transition-all text-sm">
+                {t('nav.contact')}
+              </a>
+            </Link>
             
             {/* Language Selector */}
             <div className="relative">
@@ -242,13 +241,14 @@ export default function Header() {
               {t('nav.about')}
             </a>
           </Link>
-          <a 
-            href="/#contact"
-            onClick={handleLinkClick}
-            className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-coral transition-all text-base mt-4"
-          >
-            {t('nav.contact')}
-          </a>
+          <Link href="/contact">
+            <a 
+              onClick={handleLinkClick}
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-coral transition-all text-base mt-4"
+            >
+              {t('nav.contact')}
+            </a>
+          </Link>
         </div>
       </nav>
     </>

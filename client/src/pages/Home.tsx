@@ -440,13 +440,13 @@ export default function Home() {
               className={`max-w-4xl mx-auto text-center ${contactAnim.isVisible ? 'animate-scale-in' : 'opacity-0-init scale-95-init'}`}
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-                {t('contact.title')}
+                {t('collaboration.title')}
               </h2>
               <p className="text-base md:text-lg lg:text-xl text-orange-50 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
-                {t('contact.description')}
+                {t('collaboration.description')}
               </p>
               <p className="text-sm md:text-base lg:text-lg text-orange-100 mb-6 md:mb-10 px-4">
-                {t('contact.cta')}
+                {t('collaboration.cta')}
               </p>
               <a 
                 href="mailto:contact@vexarlabs.com" 
