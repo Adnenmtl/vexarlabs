@@ -32,7 +32,7 @@ export default function Header() {
 
   return (
     <header 
-      className={`py-4 border-b-2 border-orange-100 bg-white/95 backdrop-blur-md fixed left-0 right-0 z-50 transition-transform duration-150 shadow-sm ${
+      className={`py-2 border-b-2 border-orange-100 bg-white/95 backdrop-blur-md fixed left-0 right-0 z-50 transition-transform duration-150 shadow-sm ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
       style={{ top: 0 }}
