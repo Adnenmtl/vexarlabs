@@ -87,7 +87,7 @@ export default function UnderConstruction({ onUnlock }: UnderConstructionProps) 
         {/* Logo */}
         <div className="text-center mb-8">
           <img 
-            src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/BSeseeWmcJDkjPoO.png" 
+            src="/images/logo-vexarlabs.png" 
             alt="VexarLabs" 
             className="h-16 w-auto mx-auto mb-6"
           />

@@ -36,7 +36,7 @@ export default function RondeSecuriteTaxi() {
             
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <img 
-                src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/xaZHlbEgJmsATdJf.png" 
+                src="/images/ronde-icon.png" 
                 alt="Ronde Sécurité Taxi icon"
                 className="w-28 h-28 rounded-3xl shadow-2xl flex-shrink-0 object-cover border-4 border-white/20"
               />
@@ -92,9 +92,9 @@ export default function RondeSecuriteTaxi() {
             </h2>
             <div className="flex flex-wrap justify-center gap-6">
               {[
-                "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/xLWDDYoUpTABhfWp.png",
-                "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/EVLvPWqvQAXjYPld.png",
-                "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/VBjeviPOeFuNsPjP.png",
+                "/images/ronde-screenshot-1.png",
+                "/images/ronde-screenshot-2.png",
+                "/images/ronde-screenshot-3.png",
               ].map((screenshot, index) => (
                 <img 
                   key={index}

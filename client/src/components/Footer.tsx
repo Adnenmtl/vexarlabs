@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8">
           <div className="flex flex-col items-center md:items-start gap-3 md:gap-4">
             <img 
-              src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/BSeseeWmcJDkjPoO.png" 
+              src="/images/logo-vexarlabs.png" 
               alt="VexarLabs" 
               className="h-6 md:h-8 w-auto object-contain"
             />

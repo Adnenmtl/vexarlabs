@@ -60,7 +60,7 @@ export default function Header() {
         <div className="container flex items-center justify-between">
           <Link href="/" className="hover:opacity-80 transition-opacity" onClick={handleLinkClick}>
             <img 
-              src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/BSeseeWmcJDkjPoO.png" 
+              src="/images/logo-vexarlabs.png" 
               alt="VexarLabs" 
               className="h-16 md:h-20 lg:h-80 w-auto object-contain"
             />
