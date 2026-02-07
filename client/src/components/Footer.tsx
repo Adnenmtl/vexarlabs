@@ -13,7 +13,7 @@ export default function Footer() {
             <img 
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/IUteagfTanLpZpus.png" 
               alt="VexarLabs Logo" 
-              className="h-8 w-auto object-contain"
+              className="h-10 w-auto object-contain"
             />
             <span className="text-sm text-slate-600">
               © {new Date().getFullYear()} VexarLabs. Building practical digital solutions.
