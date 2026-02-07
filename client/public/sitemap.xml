@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://vexarlabs.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vexarlabs.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vexarlabs.com/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vexarlabs.com/"/>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Ronde Sécurité Taxi -->
+  <url>
+    <loc>https://vexarlabs.com/app/ronde-securite-taxi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vexarlabs.com/app/ronde-securite-taxi?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vexarlabs.com/app/ronde-securite-taxi?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vexarlabs.com/app/ronde-securite-taxi"/>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- FMarabia -->
+  <url>
+    <loc>https://vexarlabs.com/app/fmarabia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vexarlabs.com/app/fmarabia?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vexarlabs.com/app/fmarabia?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vexarlabs.com/app/fmarabia"/>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Influvo -->
+  <url>
+    <loc>https://vexarlabs.com/app/influvo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vexarlabs.com/app/influvo?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vexarlabs.com/app/influvo?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vexarlabs.com/app/influvo"/>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://vexarlabs.com/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vexarlabs.com/privacy?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vexarlabs.com/privacy?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vexarlabs.com/privacy"/>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://vexarlabs.com/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vexarlabs.com/terms?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vexarlabs.com/terms?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vexarlabs.com/terms"/>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Ronde Sécurité Taxi Privacy -->
+  <url>
+    <loc>https://vexarlabs.com/app/ronde-securite-taxi/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vexarlabs.com/app/ronde-securite-taxi/privacy?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vexarlabs.com/app/ronde-securite-taxi/privacy?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vexarlabs.com/app/ronde-securite-taxi/privacy"/>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+  <!-- FMarabia Privacy -->
+  <url>
+    <loc>https://vexarlabs.com/app/fmarabia/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vexarlabs.com/app/fmarabia/privacy?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vexarlabs.com/app/fmarabia/privacy?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vexarlabs.com/app/fmarabia/privacy"/>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+  <!-- Influvo Privacy -->
+  <url>
+    <loc>https://vexarlabs.com/app/influvo/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vexarlabs.com/app/influvo/privacy?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vexarlabs.com/app/influvo/privacy?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vexarlabs.com/app/influvo/privacy"/>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+</urlset>

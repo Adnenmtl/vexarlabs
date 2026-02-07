@@ -5,6 +5,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "wouter";
 import { ArrowLeft, Radio, Globe, Smartphone, Headphones } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -17,6 +18,7 @@ export default function FMarabia() {
   
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
+      <SEOHead page="fmarabia" />
       <Header />
       
       <main className="flex-1 pt-20">

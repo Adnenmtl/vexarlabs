@@ -1,0 +1,10 @@
+# VexarLabs robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://vexarlabs.com/sitemap.xml
+
+# Disallow admin or private paths (if any in the future)
+# Disallow: /admin/

@@ -5,6 +5,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "wouter";
 import { ArrowLeft, Sparkles, Zap, TrendingUp, Brain, Workflow, BarChart } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -18,6 +19,7 @@ export default function Influvo() {
   
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
+      <SEOHead page="influvo" />
       <Header />
       
       <main className="flex-1 pt-20">

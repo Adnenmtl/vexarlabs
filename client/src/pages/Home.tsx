@@ -6,6 +6,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "wouter";
 import { ExternalLink, Smartphone, Globe, Sparkles, X, Code, Zap, Shield, Layers, ArrowRight, CheckCircle2 } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -101,6 +102,7 @@ export default function Home() {
   
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
+      <SEOHead page="home" />
       <Header />
       
       <main className="flex-1 pt-20">
