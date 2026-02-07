@@ -42,7 +42,7 @@ export default function Header() {
           <img 
             src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/IUteagfTanLpZpus.png" 
             alt="VexarLabs" 
-            className="w-12 h-12 object-contain"
+            className="w-20 h-20 object-contain"
           />
         </Link>
         <nav className="flex items-center gap-8">
