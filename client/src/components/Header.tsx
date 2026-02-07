@@ -62,7 +62,7 @@ export default function Header() {
             <img 
               src="/images/logo-vexarlabs.png" 
               alt="VexarLabs" 
-              className="h-16 md:h-20 lg:h-80 w-auto object-contain"
+              className="h-16 md:h-20 lg:h-20 w-auto object-contain"
             />
           </Link>
 
