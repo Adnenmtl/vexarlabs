@@ -40,9 +40,9 @@ export default function Header() {
       <div className="container flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <img 
-            src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/pCBMueMfEDSMWROP.svg" 
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/IUteagfTanLpZpus.png" 
             alt="VexarLabs Logo" 
-            className="h-10 object-contain"
+            className="h-10 w-auto object-contain"
           />
         </Link>
         <nav className="flex items-center gap-8">
