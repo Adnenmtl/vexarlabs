@@ -5,8 +5,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { FileText, CheckCircle, User, Shield, Scale, RefreshCw, Mail } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function TermsOfService() {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -18,13 +20,13 @@ export default function TermsOfService() {
               <FileText className="w-6 h-6 text-primary-foreground" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold">Conditions d'Utilisation</h1>
-              <p className="text-muted-foreground">VexarLabs</p>
+              <h1 className="text-2xl font-bold">{t('terms.title')}</h1>
+              <p className="text-muted-foreground">{t('terms.company')}</p>
             </div>
           </div>
           
           <p className="text-sm text-muted-foreground mb-10 pb-6 border-b border-border">
-            Dernière mise à jour : {new Date().toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}
+            {t('terms.lastUpdated')} {new Date().toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}
           </p>
 
           <div className="space-y-10">
@@ -33,12 +35,10 @@ export default function TermsOfService() {
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                   <CheckCircle className="w-4 h-4 text-primary" />
                 </span>
-                1. Acceptation des conditions
+                {t('terms.section1.title')}
               </h2>
               <p className="text-muted-foreground leading-relaxed pl-10">
-                En accédant et en utilisant les applications et services de VexarLabs, vous acceptez d'être lié 
-                par ces conditions d'utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser 
-                nos services.
+                {t('terms.section1.content')}
               </p>
             </section>
 
@@ -47,12 +47,10 @@ export default function TermsOfService() {
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                   <FileText className="w-4 h-4 text-primary" />
                 </span>
-                2. Description des services
+                {t('terms.section2.title')}
               </h2>
               <p className="text-muted-foreground leading-relaxed pl-10">
-                VexarLabs fournit des applications mobiles et web conçues pour répondre à divers besoins. 
-                Chaque application peut avoir des fonctionnalités et des conditions spécifiques qui s'appliquent 
-                en plus de ces conditions générales.
+                {t('terms.section2.content')}
               </p>
             </section>
 
@@ -61,12 +59,10 @@ export default function TermsOfService() {
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                   <User className="w-4 h-4 text-primary" />
                 </span>
-                3. Compte utilisateur
+                {t('terms.section3.title')}
               </h2>
               <p className="text-muted-foreground leading-relaxed pl-10">
-                Certaines de nos applications peuvent nécessiter la création d'un compte. Vous êtes responsable 
-                de maintenir la confidentialité de vos identifiants de connexion et de toutes les activités 
-                effectuées sous votre compte.
+                {t('terms.section3.content')}
               </p>
             </section>
 
@@ -75,16 +71,16 @@ export default function TermsOfService() {
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                   <Shield className="w-4 h-4 text-primary" />
                 </span>
-                4. Utilisation acceptable
+                {t('terms.section4.title')}
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-3 pl-10">
-                Vous vous engagez à ne pas :
+                {t('terms.section4.intro')}
               </p>
               <ul className="list-disc list-inside text-muted-foreground space-y-2 pl-10">
-                <li>Utiliser nos services à des fins illégales</li>
-                <li>Tenter de compromettre la sécurité de nos systèmes</li>
-                <li>Copier, modifier ou distribuer notre contenu sans autorisation</li>
-                <li>Interférer avec le fonctionnement normal de nos services</li>
+                <li>{t('terms.section4.item1')}</li>
+                <li>{t('terms.section4.item2')}</li>
+                <li>{t('terms.section4.item3')}</li>
+                <li>{t('terms.section4.item4')}</li>
               </ul>
             </section>
 
@@ -93,11 +89,10 @@ export default function TermsOfService() {
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                   <FileText className="w-4 h-4 text-primary" />
                 </span>
-                5. Propriété intellectuelle
+                {t('terms.section5.title')}
               </h2>
               <p className="text-muted-foreground leading-relaxed pl-10">
-                Tous les contenus, marques, logos et éléments visuels présents dans nos applications sont la 
-                propriété exclusive de VexarLabs ou de ses partenaires. Toute reproduction non autorisée est interdite.
+                {t('terms.section5.content')}
               </p>
             </section>
 
@@ -106,12 +101,10 @@ export default function TermsOfService() {
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                   <Scale className="w-4 h-4 text-primary" />
                 </span>
-                6. Limitation de responsabilité
+                {t('terms.section6.title')}
               </h2>
               <p className="text-muted-foreground leading-relaxed pl-10">
-                Nos services sont fournis "en l'état". VexarLabs ne garantit pas que les services seront 
-                ininterrompus ou exempts d'erreurs. Dans la mesure permise par la loi, nous déclinons toute 
-                responsabilité pour les dommages indirects.
+                {t('terms.section6.content')}
               </p>
             </section>
 
@@ -120,23 +113,20 @@ export default function TermsOfService() {
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                   <RefreshCw className="w-4 h-4 text-primary" />
                 </span>
-                7. Modifications
+                {t('terms.section7.title')}
               </h2>
               <p className="text-muted-foreground leading-relaxed pl-10">
-                Nous nous réservons le droit de modifier ces conditions à tout moment. Les modifications 
-                prendront effet dès leur publication. Votre utilisation continue des services après 
-                modification constitue votre acceptation des nouvelles conditions.
+                {t('terms.section7.content')}
               </p>
             </section>
 
             <section className="p-6 bg-secondary/50 rounded-xl">
               <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
                 <Mail className="w-5 h-5 text-primary" />
-                8. Contact
+                {t('terms.section8.title')}
               </h2>
               <p className="text-muted-foreground">
-                Pour toute question concernant ces conditions, contactez-nous à : 
-                <a href="mailto:contact@vexarlabs.com" className="text-primary hover:underline ml-1">contact@vexarlabs.com</a>
+                {t('terms.section8.content')} <a href="mailto:contact@vexarlabs.com" className="text-primary hover:underline ml-1">contact@vexarlabs.com</a>
               </p>
             </section>
           </div>
