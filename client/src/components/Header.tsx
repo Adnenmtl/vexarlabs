@@ -39,7 +39,7 @@ export default function Header() {
     >
       <div className="container flex items-center justify-between">
         <Link href="/" className="hover:opacity-80 transition-opacity">
-          <span className="text-2xl font-bold tracking-tight" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, color: '#1e293b' }}>
+          <span className="text-4xl font-bold tracking-tight" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, color: '#1e293b' }}>
             VexarLabs
           </span>
         </Link>
