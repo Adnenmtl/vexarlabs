@@ -181,17 +181,17 @@ export default function Home() {
               className={`max-w-4xl ${aboutAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-                {t('about.title')} <span className="text-gradient-coral">{t('about.title.highlight')}</span>
+                {t('aboutSection.title')} <span className="text-gradient-coral">{t('aboutSection.title.highlight')}</span>
               </h2>
               <div className="space-y-4 md:space-y-6 text-base md:text-lg text-slate-300 leading-relaxed">
                 <p>
-                  {t('about.p1')}
+                  {t('aboutSection.p1')}
                 </p>
                 <p>
-                  {t('about.p2')}
+                  {t('aboutSection.p2')}
                 </p>
                 <p className="text-lg md:text-xl font-semibold text-white">
-                  {t('about.p3')}
+                  {t('aboutSection.p3')}
                 </p>
               </div>
             </div>

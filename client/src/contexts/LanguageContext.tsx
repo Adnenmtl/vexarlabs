@@ -62,12 +62,12 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.cta.products': 'View Our Products',
     'hero.cta.contact': 'Contact Us',
     
-    // About
-    'about.title': 'About',
-    'about.title.highlight': 'VexarLabs',
-    'about.p1': 'VexarLabs is a Québec-based technology studio developing focused digital solutions designed to solve concrete operational and media-related challenges.',
-    'about.p2': 'We build scalable applications with lean architecture and automation-first thinking.',
-    'about.p3': 'Our objective is simple: build products that are practical, reliable, and growth-ready.',
+    // About Section (Home Page)
+    'aboutSection.title': 'About',
+    'aboutSection.title.highlight': 'VexarLabs',
+    'aboutSection.p1': 'VexarLabs is a Québec-based technology studio developing focused digital solutions designed to solve concrete operational and media-related challenges.',
+    'aboutSection.p2': 'We build scalable applications with lean architecture and automation-first thinking.',
+    'aboutSection.p3': 'Our objective is simple: build products that are practical, reliable, and growth-ready.',
     
     // Products
     'products.title': 'Product',
@@ -293,6 +293,32 @@ const translations: Record<Language, Record<string, string>> = {
     'terms.section8.title': '8. Contact',
     'terms.section8.content': 'For any questions regarding these terms, contact us at:',
     
+    // About Page
+    'about.title': 'About VexarLabs',
+    'about.subtitle': 'Building practical digital solutions',
+    'about.hero.title': 'Who We Are',
+    'about.hero.description': 'VexarLabs is a Quebec-based technology studio specializing in the development of mobile and web applications. We focus on creating practical solutions that address real-world challenges in mobility, media platforms, and creator economy tools.',
+    'about.mission.title': 'Our Mission',
+    'about.mission.description': 'We believe technology should simplify daily life and empower users. Our mission is to design intuitive, reliable applications that solve concrete problems while delivering exceptional user experiences.',
+    'about.values.title': 'Our Values',
+    'about.values.innovation.title': 'Innovation',
+    'about.values.innovation.desc': 'We constantly explore new technologies and approaches to create cutting-edge solutions that anticipate user needs.',
+    'about.values.quality.title': 'Quality',
+    'about.values.quality.desc': 'Every line of code, every design element is crafted with attention to detail to ensure optimal performance and reliability.',
+    'about.values.simplicity.title': 'Simplicity',
+    'about.values.simplicity.desc': 'We believe the best solutions are the simplest. Our interfaces are intuitive and our features are accessible to everyone.',
+    'about.values.transparency.title': 'Transparency',
+    'about.values.transparency.desc': 'We maintain open and honest communication with our users, partners, and stakeholders at every stage.',
+    'about.approach.title': 'Our Approach',
+    'about.approach.description': 'We adopt a user-centered development methodology. Each project begins with a deep understanding of user needs, followed by iterative design and rigorous testing. We work closely with our clients to ensure the final product exceeds expectations.',
+    'about.team.title': 'Our Team',
+    'about.team.description': 'VexarLabs brings together passionate developers, creative designers, and technology strategists. Our diverse team combines technical expertise with a deep understanding of market needs to deliver innovative solutions.',
+    'about.location.title': 'Based in Quebec',
+    'about.location.description': 'Proudly rooted in Quebec, we serve clients locally and internationally. Our Quebec location allows us to understand the specific needs of the North American market while maintaining a global perspective.',
+    'about.cta.title': 'Ready to Work Together?',
+    'about.cta.description': 'Whether you have a project in mind or simply want to learn more about our services, we\'d love to hear from you.',
+    'about.cta.button': 'Contact Us',
+    
     // 404 Page
     'notFound.title': 'Page Not Found',
     'notFound.description': 'Sorry, the page you are looking for doesn\'t exist. It may have been moved or deleted.',
@@ -315,12 +341,12 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.cta.products': 'Voir nos produits',
     'hero.cta.contact': 'Nous contacter',
     
-    // About
-    'about.title': 'À propos de',
-    'about.title.highlight': 'VexarLabs',
-    'about.p1': 'VexarLabs est un studio technologique québécois développant des solutions numériques ciblées conçues pour résoudre des défis opérationnels et médiatiques concrets.',
-    'about.p2': 'Nous construisons des applications évolutives avec une architecture légère et une approche axée sur l\'automatisation.',
-    'about.p3': 'Notre objectif est simple : créer des produits pratiques, fiables et prêts pour la croissance.',
+    // About Section (Home Page)
+    'aboutSection.title': 'À propos de',
+    'aboutSection.title.highlight': 'VexarLabs',
+    'aboutSection.p1': 'VexarLabs est un studio technologique québécois développant des solutions numériques ciblées conçues pour résoudre des défis opérationnels et médiatiques concrets.',
+    'aboutSection.p2': 'Nous construisons des applications évolutives avec une architecture légère et une approche axée sur l\'automatisation.',
+    'aboutSection.p3': 'Notre objectif est simple : créer des produits pratiques, fiables et prêts pour la croissance.',
     
     // Products
     'products.title': 'Portfolio de',
@@ -545,6 +571,32 @@ const translations: Record<Language, Record<string, string>> = {
     'terms.section7.content': 'Nous nous réservons le droit de modifier ces conditions à tout moment. Les modifications prendront effet dès leur publication. Votre utilisation continue des services après modification constitue votre acceptation des nouvelles conditions.',
     'terms.section8.title': '8. Contact',
     'terms.section8.content': 'Pour toute question concernant ces conditions, contactez-nous à :',
+    
+    // About Page
+    'about.title': 'À propos de VexarLabs',
+    'about.subtitle': 'Créer des solutions numériques pratiques',
+    'about.hero.title': 'Qui sommes-nous',
+    'about.hero.description': 'VexarLabs est un studio technologique québécois spécialisé dans le développement d\'applications mobiles et web. Nous nous concentrons sur la création de solutions pratiques qui répondent aux défis du monde réel dans la mobilité, les plateformes médias et les outils pour l\'économie des créateurs.',
+    'about.mission.title': 'Notre mission',
+    'about.mission.description': 'Nous croyons que la technologie devrait simplifier la vie quotidienne et autonomiser les utilisateurs. Notre mission est de concevoir des applications intuitives et fiables qui résolvent des problèmes concrets tout en offrant des expériences utilisateur exceptionnelles.',
+    'about.values.title': 'Nos valeurs',
+    'about.values.innovation.title': 'Innovation',
+    'about.values.innovation.desc': 'Nous explorons constamment de nouvelles technologies et approches pour créer des solutions de pointe qui anticipent les besoins des utilisateurs.',
+    'about.values.quality.title': 'Qualité',
+    'about.values.quality.desc': 'Chaque ligne de code, chaque élément de design est conçu avec attention aux détails pour garantir performance optimale et fiabilité.',
+    'about.values.simplicity.title': 'Simplicité',
+    'about.values.simplicity.desc': 'Nous croyons que les meilleures solutions sont les plus simples. Nos interfaces sont intuitives et nos fonctionnalités accessibles à tous.',
+    'about.values.transparency.title': 'Transparence',
+    'about.values.transparency.desc': 'Nous maintenons une communication ouverte et honnête avec nos utilisateurs, partenaires et parties prenantes à chaque étape.',
+    'about.approach.title': 'Notre approche',
+    'about.approach.description': 'Nous adoptons une méthodologie de développement centrée sur l\'utilisateur. Chaque projet commence par une compréhension approfondie des besoins utilisateurs, suivie d\'une conception itérative et de tests rigoureux. Nous travaillons en étroite collaboration avec nos clients pour garantir que le produit final dépasse les attentes.',
+    'about.team.title': 'Notre équipe',
+    'about.team.description': 'VexarLabs réunit des développeurs passionnés, des designers créatifs et des stratèges technologiques. Notre équipe diversifiée combine expertise technique et compréhension approfondie des besoins du marché pour livrer des solutions innovantes.',
+    'about.location.title': 'Basé au Québec',
+    'about.location.description': 'Fièrement enracinés au Québec, nous servons des clients localement et internationalement. Notre localisation québécoise nous permet de comprendre les besoins spécifiques du marché nord-américain tout en maintenant une perspective globale.',
+    'about.cta.title': 'Prêt à collaborer ?',
+    'about.cta.description': 'Que vous ayez un projet en tête ou que vous souhaitiez simplement en savoir plus sur nos services, nous serions ravis de vous entendre.',
+    'about.cta.button': 'Nous contacter',
     
     // 404 Page
     'notFound.title': 'Page introuvable',

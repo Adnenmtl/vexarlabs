@@ -7,7 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useLocation } from 'wouter';
 
 interface SEOHeadProps {
-  page?: 'home' | 'ronde' | 'fmarabia' | 'influvo' | 'privacy' | 'terms';
+  page?: 'home' | 'ronde' | 'fmarabia' | 'influvo' | 'privacy' | 'terms' | 'about';
 }
 
 export default function SEOHead({ page = 'home' }: SEOHeadProps) {
@@ -89,6 +89,18 @@ export default function SEOHead({ page = 'home' }: SEOHeadProps) {
         title: 'Conditions d\'utilisation | VexarLabs',
         description: 'Conditions d\'utilisation des produits et services VexarLabs. Lisez nos termes et conditions.',
         keywords: 'conditions utilisation, termes et conditions, conditions VexarLabs, légal',
+      },
+    },
+    about: {
+      en: {
+        title: 'About VexarLabs | Québec Technology Studio',
+        description: 'Learn about VexarLabs, a Québec-based technology studio. Discover our mission, values, team, and approach to building practical digital solutions.',
+        keywords: 'about VexarLabs, Quebec tech studio, company mission, team, values, technology approach',
+      },
+      fr: {
+        title: 'À propos de VexarLabs | Studio technologique québécois',
+        description: 'Découvrez VexarLabs, un studio technologique québécois. Notre mission, nos valeurs, notre équipe et notre approche pour créer des solutions numériques pratiques.',
+        keywords: 'à propos VexarLabs, studio tech Québec, mission entreprise, équipe, valeurs, approche technologique',
       },
     },
   };
