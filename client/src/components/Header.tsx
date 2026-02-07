@@ -6,7 +6,7 @@ import { Link } from "wouter";
 
 export default function Header() {
   return (
-    <header className="py-5 border-b border-border bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+    <header className="py-5 border-b border-border bg-white/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
       <div className="container flex items-center justify-between">
         <Link href="/">
           <img 

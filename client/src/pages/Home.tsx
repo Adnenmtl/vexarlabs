@@ -53,7 +53,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      <main className="flex-1">
+      <main className="flex-1 pt-20">
         {/* Hero Section */}
         <section className="py-20 md:py-28 relative overflow-hidden">
           {/* Fond avec gradient et motifs */}
