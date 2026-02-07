@@ -11,7 +11,7 @@ export default function Support() {
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      <main className="flex-1 py-16">
+      <main className="flex-1 py-16 pt-32">
         <div className="container max-w-3xl">
           <h1 className="text-3xl font-bold mb-3">Support</h1>
           <p className="text-muted-foreground text-lg mb-10">

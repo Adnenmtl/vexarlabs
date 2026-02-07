@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      <main className="flex-1 py-16">
+      <main className="flex-1 py-16 pt-32">
         <div className="container max-w-3xl">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center">
