@@ -7,8 +7,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { ArrowLeft, Sparkles, Zap, TrendingUp, Brain, Workflow, BarChart } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Influvo() {
+  const featuresAnim = useScrollAnimation({ threshold: 0.1 });
+  const aboutAnim = useScrollAnimation({ threshold: 0.2 });
+  const useCasesAnim = useScrollAnimation({ threshold: 0.1 });
+  const faqAnim = useScrollAnimation({ threshold: 0.1 });
+  const contactAnim = useScrollAnimation({ threshold: 0.2 });
+  
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
       <Header />
@@ -65,7 +72,10 @@ export default function Influvo() {
             <h2 className="text-4xl font-bold mb-12 text-center">
               Key <span className="text-gradient-sunset">Features</span>
             </h2>
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div 
+              ref={featuresAnim.ref}
+              className={`grid md:grid-cols-2 gap-6 max-w-4xl mx-auto ${featuresAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
+            >
               <div className="p-8 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl border-2 border-purple-100 hover:border-purple-300 hover:shadow-lg transition-all">
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center mb-4 shadow-lg">
                   <Brain className="w-7 h-7 text-white" />
@@ -112,8 +122,12 @@ export default function Influvo() {
         {/* About the Platform */}
         <section className="py-20 bg-slate-50">
           <div className="container">
-            <h2 className="text-4xl font-bold mb-8">About the Platform</h2>
-            <div className="max-w-3xl space-y-6 text-lg text-slate-600 leading-relaxed">
+            <div 
+              ref={aboutAnim.ref}
+              className={`${aboutAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
+            >
+              <h2 className="text-4xl font-bold mb-8">About the Platform</h2>
+              <div className="max-w-3xl space-y-6 text-lg text-slate-600 leading-relaxed">
               <p>
                 Influvo is designed for the modern content creator who wants to scale their digital presence without getting 
                 overwhelmed by the operational complexity. Whether you're a solo creator, part of a content team, or managing 
@@ -130,6 +144,7 @@ export default function Influvo() {
                 simplicity and ease of use.
               </p>
             </div>
+            </div>
           </div>
         </section>
 
@@ -139,7 +154,10 @@ export default function Influvo() {
             <h2 className="text-4xl font-bold mb-12 text-center">
               Who Benefits from <span className="text-gradient-sunset">Influvo?</span>
             </h2>
-            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div 
+              ref={useCasesAnim.ref}
+              className={`grid md:grid-cols-3 gap-6 max-w-5xl mx-auto ${useCasesAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
+            >
               {[
                 { icon: Sparkles, title: "Solo Creators", desc: "Streamline your workflow and grow your audience without hiring a team. Influvo acts as your AI-powered assistant." },
                 { icon: BarChart, title: "Content Teams", desc: "Coordinate multi-person workflows, track performance across channels, and maintain consistent brand voice." },
@@ -166,7 +184,10 @@ export default function Influvo() {
             <h2 className="text-4xl font-bold mb-12 text-center">
               Frequently Asked <span className="text-gradient-sunset">Questions</span>
             </h2>
-            <div className="max-w-3xl mx-auto space-y-6">
+            <div 
+              ref={faqAnim.ref}
+              className={`max-w-3xl mx-auto space-y-6 ${faqAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
+            >
               {[
                 { q: "When will Influvo be available?", a: "Influvo is currently in advanced development phase. We're working hard to bring this platform to creators worldwide. Visit influvo.ai to stay updated on our launch timeline." },
                 { q: "Which platforms does Influvo support?", a: "Influvo will be available as a web application with companion mobile apps for iOS and Android, allowing you to manage your content from anywhere." },
@@ -186,7 +207,10 @@ export default function Influvo() {
         {/* Contact */}
         <section className="py-20 bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 text-white">
           <div className="container">
-            <div className="max-w-xl mx-auto text-center">
+            <div 
+              ref={contactAnim.ref}
+              className={`max-w-xl mx-auto text-center ${contactAnim.isVisible ? 'animate-scale-in' : 'opacity-0-init scale-95-init'}`}
+            >
               <h2 className="text-4xl font-bold mb-4">Stay Connected</h2>
               <p className="text-xl text-purple-50 mb-8">
                 Want to learn more about Influvo or get notified when we launch? Reach out to our team.

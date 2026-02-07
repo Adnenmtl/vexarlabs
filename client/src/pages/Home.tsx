@@ -8,7 +8,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { ExternalLink, Smartphone, Globe, Sparkles, X, Code, Zap, Shield, Layers, ArrowRight, CheckCircle2 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const products = [
   {
@@ -79,6 +80,22 @@ const products = [
 
 export default function Home() {
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [scrollY, setScrollY] = useState(0);
+  
+  // Parallax effect
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
+  // Animation hooks for different sections
+  const aboutAnim = useScrollAnimation({ threshold: 0.2 });
+  const productsAnim = useScrollAnimation({ threshold: 0.1 });
+  const approachAnim = useScrollAnimation({ threshold: 0.1 });
+  const positioningAnim = useScrollAnimation({ threshold: 0.2 });
+  const techAnim = useScrollAnimation({ threshold: 0.1 });
+  const contactAnim = useScrollAnimation({ threshold: 0.2 });
   
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
@@ -91,9 +108,15 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-cyan-50 opacity-60"></div>
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-orange-100/30 to-transparent"></div>
           
-          {/* Geometric shapes */}
-          <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-orange-400/10 to-cyan-400/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-tr from-cyan-400/10 to-orange-400/10 rounded-full blur-3xl"></div>
+          {/* Geometric shapes with parallax */}
+          <div 
+            className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-orange-400/10 to-cyan-400/10 rounded-full blur-3xl parallax-slow"
+            style={{ transform: `translateY(${scrollY * 0.1}px)` }}
+          ></div>
+          <div 
+            className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-tr from-cyan-400/10 to-orange-400/10 rounded-full blur-3xl parallax-slow"
+            style={{ transform: `translateY(${-scrollY * 0.15}px)` }}
+          ></div>
           
           <div className="container relative z-10 py-24 md:py-32">
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -124,11 +147,17 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Visual element */}
+              {/* Visual element with parallax */}
               <div className="hidden md:block relative">
                 <div className="relative w-full h-96">
-                  <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl rotate-6 shadow-coral"></div>
-                  <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-3xl -rotate-6 shadow-cyan"></div>
+                  <div 
+                    className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl rotate-6 shadow-coral parallax-slow"
+                    style={{ transform: `translateY(${scrollY * 0.05}px) rotate(6deg)` }}
+                  ></div>
+                  <div 
+                    className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-3xl -rotate-6 shadow-cyan parallax-slow"
+                    style={{ transform: `translateY(${-scrollY * 0.08}px) rotate(-6deg)` }}
+                  ></div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-64 h-64 bg-white rounded-2xl shadow-2xl flex items-center justify-center">
                       <Code className="w-32 h-32 text-orange-500" />
@@ -143,7 +172,10 @@ export default function Home() {
         {/* About VexarLabs - Diagonal Section */}
         <section id="about" className="relative bg-gradient-to-br from-slate-900 to-slate-800 text-white diagonal-top">
           <div className="container py-20">
-            <div className="max-w-4xl">
+            <div 
+              ref={aboutAnim.ref}
+              className={`max-w-4xl ${aboutAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
+            >
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 About <span className="text-gradient-coral">VexarLabs</span>
               </h2>
@@ -165,7 +197,10 @@ export default function Home() {
         {/* Product Portfolio - Bold Cards */}
         <section id="products" className="py-20 bg-slate-50">
           <div className="container">
-            <div className="text-center mb-16">
+            <div 
+              ref={productsAnim.ref}
+              className={`text-center mb-16 ${productsAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
+            >
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 Product <span className="text-gradient-sunset">Portfolio</span>
               </h2>
@@ -178,13 +213,24 @@ export default function Home() {
               {products.map((product, index) => {
                 const IconComponent = product.icon;
                 const isReversed = index % 2 === 1;
+                const ProductAnim = () => {
+                  const anim = useScrollAnimation({ threshold: 0.2 });
+                  return anim;
+                };
+                const productAnim = ProductAnim();
                 
                 return (
                   <div 
                     key={product.id}
+                    ref={productAnim.ref}
                     className={`bg-white rounded-3xl shadow-xl overflow-hidden card-hover ${
                       isReversed ? 'md:ml-12' : 'md:mr-12'
+                    } ${
+                      productAnim.isVisible 
+                        ? (isReversed ? 'animate-slide-in-right' : 'animate-slide-in-left')
+                        : (isReversed ? 'opacity-0-init translate-x-8-init-right' : 'opacity-0-init translate-x-8-init-left')
                     }`}
+                    style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 p-8`}>
                       {/* Content */}
@@ -286,7 +332,10 @@ export default function Home() {
         {/* Development Approach - Grid Layout */}
         <section className="py-20 bg-white">
           <div className="container">
-            <div className="text-center mb-16">
+            <div 
+              ref={approachAnim.ref}
+              className={`text-center mb-16 ${approachAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
+            >
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 Development <span className="text-gradient-sunset">Approach</span>
               </h2>
@@ -326,7 +375,10 @@ export default function Home() {
         {/* Strategic Positioning - Diagonal Section */}
         <section className="relative bg-gradient-to-br from-cyan-600 to-cyan-700 text-white diagonal-top">
           <div className="container py-20">
-            <div className="max-w-4xl">
+            <div 
+              ref={positioningAnim.ref}
+              className={`max-w-4xl ${positioningAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
+            >
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Strategic Positioning
               </h2>
@@ -358,7 +410,10 @@ export default function Home() {
         {/* Technology Stack */}
         <section className="py-20 bg-slate-50">
           <div className="container">
-            <div className="text-center mb-16">
+            <div 
+              ref={techAnim.ref}
+              className={`text-center mb-16 ${techAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
+            >
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 Technology <span className="text-gradient-sunset">Stack</span>
               </h2>
@@ -386,7 +441,10 @@ export default function Home() {
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzR2LTRoLTJ2NGgtNHYyaDR2NGgydi00aDR2LTJoLTR6bTAtMzBWMGgtMnY0aC00djJoNHY0aDJWNmg0VjRoLTR6TTYgMzR2LTRINHY0SDB2Mmg0djRoMnYtNGg0di0ySDZ6TTYgNFYwSDR2NEgwdjJoNHY0aDJWNmg0VjRINnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20"></div>
           
           <div className="container relative z-10 py-20">
-            <div className="max-w-4xl mx-auto text-center">
+            <div 
+              ref={contactAnim.ref}
+              className={`max-w-4xl mx-auto text-center ${contactAnim.isVisible ? 'animate-scale-in' : 'opacity-0-init scale-95-init'}`}
+            >
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Let's Collaborate
               </h2>

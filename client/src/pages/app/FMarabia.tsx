@@ -7,8 +7,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { ArrowLeft, Radio, Globe, Smartphone, Headphones } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function FMarabia() {
+  const featuresAnim = useScrollAnimation({ threshold: 0.1 });
+  const aboutAnim = useScrollAnimation({ threshold: 0.2 });
+  const faqAnim = useScrollAnimation({ threshold: 0.1 });
+  const contactAnim = useScrollAnimation({ threshold: 0.2 });
+  
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
       <Header />
@@ -64,7 +70,10 @@ export default function FMarabia() {
             <h2 className="text-4xl font-bold mb-12 text-center">
               Key <span className="text-gradient-sunset">Features</span>
             </h2>
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div 
+              ref={featuresAnim.ref}
+              className={`grid md:grid-cols-2 gap-6 max-w-4xl mx-auto ${featuresAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
+            >
               <div className="p-8 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl border-2 border-cyan-100 hover:border-cyan-300 hover:shadow-cyan transition-all">
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-4 shadow-lg">
                   <Radio className="w-7 h-7 text-white" />
@@ -111,8 +120,12 @@ export default function FMarabia() {
         {/* About the Platform */}
         <section className="py-20 bg-slate-50">
           <div className="container">
-            <h2 className="text-4xl font-bold mb-8">About the Platform</h2>
-            <div className="max-w-3xl space-y-6 text-lg text-slate-600 leading-relaxed">
+            <div 
+              ref={aboutAnim.ref}
+              className={`${aboutAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
+            >
+              <h2 className="text-4xl font-bold mb-8">About the Platform</h2>
+              <div className="max-w-3xl space-y-6 text-lg text-slate-600 leading-relaxed">
               <p>
                 FMarabia is a mobile streaming platform designed to bring Arabic radio content to listeners around the world. 
                 Whether you're at home, commuting, or traveling, FMarabia keeps you connected to your favorite stations.
@@ -127,6 +140,7 @@ export default function FMarabia() {
                 ensuring that quality audio streaming is available to everyone, regardless of their device or location.
               </p>
             </div>
+            </div>
           </div>
         </section>
 
@@ -136,7 +150,10 @@ export default function FMarabia() {
             <h2 className="text-4xl font-bold mb-12 text-center">
               Frequently Asked <span className="text-gradient-sunset">Questions</span>
             </h2>
-            <div className="max-w-3xl mx-auto space-y-6">
+            <div 
+              ref={faqAnim.ref}
+              className={`max-w-3xl mx-auto space-y-6 ${faqAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
+            >
               {[
                 { q: "Is FMarabia free to use?", a: "Yes, FMarabia is free to download and use. We believe in making Arabic radio content accessible to everyone." },
                 { q: "What devices are supported?", a: "FMarabia is available on both iOS (iPhone and iPad) and Android devices. Simply download from the App Store or Google Play." },
@@ -156,7 +173,10 @@ export default function FMarabia() {
         {/* Contact */}
         <section className="py-20 bg-gradient-to-br from-cyan-500 to-blue-600 text-white">
           <div className="container">
-            <div className="max-w-xl mx-auto text-center">
+            <div 
+              ref={contactAnim.ref}
+              className={`max-w-xl mx-auto text-center ${contactAnim.isVisible ? 'animate-scale-in' : 'opacity-0-init scale-95-init'}`}
+            >
               <h2 className="text-4xl font-bold mb-4">Get in Touch</h2>
               <p className="text-xl text-cyan-50 mb-8">
                 Have questions about FMarabia? Want to suggest a feature or report an issue? We'd love to hear from you.
