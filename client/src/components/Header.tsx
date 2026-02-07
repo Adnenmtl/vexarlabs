@@ -39,11 +39,9 @@ export default function Header() {
     >
       <div className="container flex items-center justify-between">
         <Link href="/" className="hover:opacity-80 transition-opacity">
-          <img 
-            src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/LnUEcZMewvhxQSZF.png" 
-            alt="VexarLabs" 
-            className="h-10 w-auto object-contain"
-          />
+          <span className="text-2xl font-bold tracking-tight" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, color: '#1e293b' }}>
+            VexarLabs
+          </span>
         </Link>
         <nav className="flex items-center gap-8">
           <a 
