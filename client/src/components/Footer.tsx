@@ -3,8 +3,10 @@
 */
 
 import { Link } from "wouter";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="py-8 md:py-12 border-t-2 border-orange-100 mt-auto bg-white">
       <div className="container">
@@ -16,7 +18,7 @@ export default function Footer() {
               className="h-6 md:h-8 w-auto object-contain"
             />
             <span className="text-xs md:text-sm text-slate-600 text-center md:text-left">
-              © {new Date().getFullYear()} VexarLabs. Building practical digital solutions.
+              © {new Date().getFullYear()} VexarLabs. {t('footer.tagline')}
             </span>
           </div>
           <nav className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 md:gap-6">
@@ -24,13 +26,13 @@ export default function Footer() {
               href="/privacy" 
               className="text-xs md:text-sm font-medium text-slate-600 hover:text-orange-600 transition-colors"
             >
-              Privacy
+              {t('footer.privacy')}
             </Link>
             <Link 
               href="/terms" 
               className="text-xs md:text-sm font-medium text-slate-600 hover:text-orange-600 transition-colors"
             >
-              Terms
+              {t('footer.terms')}
             </Link>
             <a 
               href="mailto:contact@vexarlabs.com" 

@@ -4,11 +4,15 @@
 
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Globe } from "lucide-react";
 
 export default function Header() {
+  const { language, setLanguage, t } = useLanguage();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,33 +67,125 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             <a 
               href="/#products" 
               className="text-sm font-semibold text-slate-700 hover:text-orange-600 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all hover:after:w-full"
             >
-              Products
+              {t('nav.products')}
             </a>
             <a 
               href="/#about" 
               className="text-sm font-semibold text-slate-700 hover:text-orange-600 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all hover:after:w-full"
             >
-              About
+              {t('nav.about')}
             </a>
             <a 
               href="/#contact" 
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-coral hover:scale-105 transition-all text-sm"
             >
-              Contact
+              {t('nav.contact')}
             </a>
+            
+            {/* Language Selector */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-slate-700 hover:text-orange-600 transition-colors"
+                aria-label="Select language"
+              >
+                <Globe className="w-4 h-4" />
+                <span className="uppercase">{language}</span>
+              </button>
+              
+              {isLangMenuOpen && (
+                <>
+                  <div 
+                    className="fixed inset-0 z-40" 
+                    onClick={() => setIsLangMenuOpen(false)}
+                  />
+                  <div className="absolute right-0 top-full mt-2 w-32 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50">
+                    <button
+                      onClick={() => {
+                        setLanguage('en');
+                        setIsLangMenuOpen(false);
+                      }}
+                      className={`w-full px-4 py-2 text-left text-sm hover:bg-orange-50 transition-colors ${
+                        language === 'en' ? 'text-orange-600 font-semibold' : 'text-slate-700'
+                      }`}
+                    >
+                      English
+                    </button>
+                    <button
+                      onClick={() => {
+                        setLanguage('fr');
+                        setIsLangMenuOpen(false);
+                      }}
+                      className={`w-full px-4 py-2 text-left text-sm hover:bg-orange-50 transition-colors ${
+                        language === 'fr' ? 'text-orange-600 font-semibold' : 'text-slate-700'
+                      }`}
+                    >
+                      Français
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
           </nav>
 
-          {/* Mobile Hamburger Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-slate-700 hover:text-orange-600 transition-colors"
-            aria-label="Toggle menu"
-          >
+          {/* Mobile Menu Controls */}
+          <div className="md:hidden flex items-center gap-2">
+            {/* Language Selector Mobile */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                className="flex items-center gap-1 px-2 py-1.5 text-xs font-semibold text-slate-700 hover:text-orange-600 transition-colors"
+                aria-label="Select language"
+              >
+                <Globe className="w-4 h-4" />
+                <span className="uppercase">{language}</span>
+              </button>
+              
+              {isLangMenuOpen && (
+                <>
+                  <div 
+                    className="fixed inset-0 z-40" 
+                    onClick={() => setIsLangMenuOpen(false)}
+                  />
+                  <div className="absolute right-0 top-full mt-2 w-28 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50">
+                    <button
+                      onClick={() => {
+                        setLanguage('en');
+                        setIsLangMenuOpen(false);
+                      }}
+                      className={`w-full px-3 py-2 text-left text-xs hover:bg-orange-50 transition-colors ${
+                        language === 'en' ? 'text-orange-600 font-semibold' : 'text-slate-700'
+                      }`}
+                    >
+                      English
+                    </button>
+                    <button
+                      onClick={() => {
+                        setLanguage('fr');
+                        setIsLangMenuOpen(false);
+                      }}
+                      className={`w-full px-3 py-2 text-left text-xs hover:bg-orange-50 transition-colors ${
+                        language === 'fr' ? 'text-orange-600 font-semibold' : 'text-slate-700'
+                      }`}
+                    >
+                      Français
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+            
+            {/* Hamburger Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-slate-700 hover:text-orange-600 transition-colors"
+              aria-label="Toggle menu"
+            >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -112,7 +208,8 @@ export default function Header() {
                 />
               )}
             </svg>
-          </button>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -136,21 +233,21 @@ export default function Header() {
             onClick={handleLinkClick}
             className="text-lg font-semibold text-slate-700 hover:text-orange-600 transition-colors py-2 border-b border-slate-100"
           >
-            Products
+            {t('nav.products')}
           </a>
           <a 
             href="/#about"
             onClick={handleLinkClick}
             className="text-lg font-semibold text-slate-700 hover:text-orange-600 transition-colors py-2 border-b border-slate-100"
           >
-            About
+            {t('nav.about')}
           </a>
           <a 
             href="/#contact"
             onClick={handleLinkClick}
             className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-coral transition-all text-base mt-4"
           >
-            Contact
+            {t('nav.contact')}
           </a>
         </div>
       </nav>

@@ -10,6 +10,7 @@ import { Link } from "wouter";
 import { ExternalLink, Smartphone, Globe, Sparkles, X, Code, Zap, Shield, Layers, ArrowRight, CheckCircle2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const products = [
   {
@@ -79,6 +80,7 @@ const products = [
 ];
 
 export default function Home() {
+  const { t } = useLanguage();
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [scrollY, setScrollY] = useState(0);
   
@@ -122,27 +124,27 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div>
                 <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs md:text-sm font-semibold rounded-full mb-4 md:mb-6">
-                  Québec-based Tech Studio
+                  {t('hero.badge')}
                 </div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-4 md:mb-6">
-                  Building <span className="text-gradient-sunset">Practical</span> Digital Solutions
+                  {t('hero.title')} <span className="text-gradient-sunset">{t('hero.title.highlight')}</span> {t('hero.title.end')}
                 </h1>
                 <p className="text-base md:text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 md:mb-8">
-                  We focus on mobility, media platforms, and creator economy tools that solve real-world challenges.
+                  {t('hero.description')}
                 </p>
                 <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4">
                   <a 
                     href="#products"
                     className="inline-flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold hover:shadow-coral hover:scale-105 transition-all text-sm md:text-base"
                   >
-                    View Our Products
+                    {t('hero.cta.products')}
                     <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
                   </a>
                   <a 
                     href="#contact"
                     className="inline-flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-white border-2 border-cyan-500 text-cyan-600 rounded-xl font-semibold hover:bg-cyan-50 transition-all text-sm md:text-base"
                   >
-                    Contact Us
+                    {t('hero.cta.contact')}
                   </a>
                 </div>
               </div>
@@ -177,17 +179,17 @@ export default function Home() {
               className={`max-w-4xl ${aboutAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-                About <span className="text-gradient-coral">VexarLabs</span>
+                {t('about.title')} <span className="text-gradient-coral">{t('about.title.highlight')}</span>
               </h2>
               <div className="space-y-4 md:space-y-6 text-base md:text-lg text-slate-300 leading-relaxed">
                 <p>
-                  VexarLabs is a Québec-based technology studio developing focused digital solutions designed to solve concrete operational and media-related challenges.
+                  {t('about.p1')}
                 </p>
                 <p>
-                  We build scalable applications with lean architecture and automation-first thinking.
+                  {t('about.p2')}
                 </p>
                 <p className="text-lg md:text-xl font-semibold text-white">
-                  Our objective is simple: build products that are practical, reliable, and growth-ready.
+                  {t('about.p3')}
                 </p>
               </div>
             </div>
@@ -202,10 +204,10 @@ export default function Home() {
               className={`text-center mb-8 md:mb-12 lg:mb-16 ${productsAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
-                Product <span className="text-gradient-sunset">Portfolio</span>
+                {t('products.title')} <span className="text-gradient-sunset">{t('products.title.highlight')}</span>
               </h2>
               <p className="text-base md:text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto px-4">
-                Three focused products solving real challenges in mobility, media, and creator economy.
+                {t('products.description')}
               </p>
             </div>
             
@@ -241,7 +243,7 @@ export default function Home() {
                           </div>
                             <div className="flex-1">
                             <div className="flex items-center gap-2 md:gap-3 mb-2">
-                              <h3 className="text-xl md:text-2xl font-bold">{product.name}</h3>
+                              <h3 className="text-xl md:text-2xl font-bold">{t(`product.${product.id}.name`)}</h3>
                               {product.website && (
                                 <a 
                                   href={product.website} 
@@ -254,23 +256,23 @@ export default function Home() {
                               )}
                             </div>
                             <div className="mb-2 md:mb-3">
-                              <span className="text-xs md:text-sm font-semibold text-orange-600">{product.category}</span>
-                              <span className="text-xs md:text-sm text-slate-500"> • {product.market}</span>
+                              <span className="text-xs md:text-sm font-semibold text-orange-600">{t(`product.${product.id}.category`)}</span>
+                              <span className="text-xs md:text-sm text-slate-500"> • {t(`product.${product.id}.market`)}</span>
                             </div>
                           </div>
                         </div>
                         
                         <p className="text-slate-600 mb-4 md:mb-6 text-sm md:text-base lg:text-lg">
-                          {product.description}
+                          {t(`product.${product.id}.description`)}
                         </p>
                         
                         <div className="mb-4 md:mb-6">
-                          <h4 className="text-xs md:text-sm font-bold mb-2 md:mb-3 text-slate-900">Key Features:</h4>
+                          <h4 className="text-xs md:text-sm font-bold mb-2 md:mb-3 text-slate-900">{t('products.features')}</h4>
                           <div className="grid gap-2">
                             {product.features.map((feature, idx) => (
                               <div key={idx} className="flex items-start gap-2">
                                 <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-cyan-500 flex-shrink-0 mt-0.5" />
-                                <span className="text-xs md:text-sm text-slate-600">{feature}</span>
+                                <span className="text-xs md:text-sm text-slate-600">{t(`product.${product.id}.feature${idx + 1}`)}</span>
                               </div>
                             ))}
                           </div>
@@ -286,7 +288,7 @@ export default function Home() {
                             </span>
                           ))}
                           <span className="px-2 py-0.5 md:px-3 md:py-1 bg-gradient-to-r from-orange-100 to-orange-200 text-orange-700 rounded-lg text-xs md:text-sm font-semibold">
-                            {product.status}
+                            {t(`product.${product.id}.status`)}
                           </span>
                         </div>
                         
@@ -295,14 +297,14 @@ export default function Home() {
                             href={`/app/${product.id}`}
                             className="inline-flex items-center justify-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold hover:shadow-coral hover:scale-105 transition-all text-sm md:text-base"
                           >
-                            Learn More
+                            {t('products.cta.learn')}
                             <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
                           </Link>
                           <Link 
                             href={`/app/${product.id}/privacy`}
                             className="inline-flex items-center justify-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-slate-100 text-slate-700 rounded-xl font-semibold hover:bg-slate-200 transition-all text-sm md:text-base"
                           >
-                            Privacy Policy
+                            {t('products.cta.privacy')}
                           </Link>
                         </div>
                       </div>
@@ -337,20 +339,20 @@ export default function Home() {
               className={`text-center mb-8 md:mb-12 lg:mb-16 ${approachAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
-                Development <span className="text-gradient-sunset">Approach</span>
+                {t('approach.title')} <span className="text-gradient-sunset">{t('approach.title.highlight')}</span>
               </h2>
               <p className="text-base md:text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto px-4">
-                At VexarLabs, we follow a structured development methodology that prioritizes functionality and market relevance.
+                {t('approach.description')}
               </p>
             </div>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
               {[
-                { icon: Zap, title: "Problem-first product design", desc: "Starting with real-world challenges to build meaningful solutions", color: "orange" },
-                { icon: Layers, title: "Lean and modular architecture", desc: "Building flexible systems that adapt to changing requirements", color: "cyan" },
-                { icon: Code, title: "Scalable infrastructure", desc: "Designing for growth from day one", color: "orange" },
-                { icon: Zap, title: "Automation-driven workflows", desc: "Reducing manual work through intelligent automation", color: "cyan" },
-                { icon: Shield, title: "Long-term maintainability", desc: "Building systems that stand the test of time", color: "orange" },
+                { icon: Zap, num: 1, color: "orange" },
+                { icon: Layers, num: 2, color: "cyan" },
+                { icon: Code, num: 3, color: "orange" },
+                { icon: Zap, num: 4, color: "cyan" },
+                { icon: Shield, num: 5, color: "orange" },
               ].map((item, index) => {
                 const Icon = item.icon;
                 return (
@@ -363,8 +365,8 @@ export default function Home() {
                     } flex items-center justify-center mb-3 md:mb-4 shadow-lg`}>
                       <Icon className="w-6 h-6 md:w-7 md:h-7 text-white" />
                     </div>
-                    <h3 className="font-bold mb-2 text-base md:text-lg">{item.title}</h3>
-                    <p className="text-xs md:text-sm text-slate-600">{item.desc}</p>
+                    <h3 className="font-bold mb-2 text-base md:text-lg">{t(`approach.item${item.num}.title`)}</h3>
+                    <p className="text-xs md:text-sm text-slate-600">{t(`approach.item${item.num}.desc`)}</p>
                   </div>
                 );
               })}
@@ -380,26 +382,21 @@ export default function Home() {
               className={`max-w-4xl ${positioningAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-                Strategic Positioning
+                {t('positioning.title')}
               </h2>
               <div className="space-y-4 md:space-y-6 text-base md:text-lg text-cyan-50 leading-relaxed mb-6 md:mb-8">
                 <p>
-                  Based in Québec, VexarLabs develops solutions tailored to local operational realities while building platforms capable of global scalability.
+                  {t('positioning.p1')}
                 </p>
                 <p className="text-lg md:text-xl font-semibold text-white">
-                  We operate at the intersection of:
+                  {t('positioning.p2')}
                 </p>
               </div>
               <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
-                {[
-                  "Mobility infrastructure",
-                  "Media distribution",
-                  "Creator economy systems",
-                  "Applied AI technologies"
-                ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-2 md:gap-3 p-3 md:p-4 bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl">
+                {[1, 2, 3, 4].map((num) => (
+                  <div key={num} className="flex items-center gap-2 md:gap-3 p-3 md:p-4 bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl">
                     <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-orange-400 flex-shrink-0"></div>
-                    <span className="font-medium text-sm md:text-base">{item}</span>
+                    <span className="font-medium text-sm md:text-base">{t(`positioning.item${num}`)}</span>
                   </div>
                 ))}
               </div>
@@ -415,21 +412,16 @@ export default function Home() {
               className={`text-center mb-8 md:mb-12 lg:mb-16 ${techAnim.isVisible ? 'animate-fade-in' : 'opacity-0-init translate-y-8-init'}`}
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
-                Technology <span className="text-gradient-sunset">Stack</span>
+                {t('tech.title')} <span className="text-gradient-sunset">{t('tech.title.highlight')}</span>
               </h2>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
-              {[
-                "Cross-platform mobile development",
-                "Cloud-based backend infrastructure",
-                "Modular system architecture",
-                "Automation pipelines"
-              ].map((tech, index) => (
+              {[1, 2, 3, 4].map((num) => (
                 <div 
-                  key={index}
+                  key={num}
                   className="p-4 md:p-6 bg-white rounded-xl md:rounded-2xl border-2 border-slate-100 hover:border-cyan-200 hover:shadow-lg transition-all text-center"
                 >
-                  <h3 className="font-bold text-slate-900 text-sm md:text-base">{tech}</h3>
+                  <h3 className="font-bold text-slate-900 text-sm md:text-base">{t(`tech.item${num}`)}</h3>
                 </div>
               ))}
             </div>
@@ -446,13 +438,13 @@ export default function Home() {
               className={`max-w-4xl mx-auto text-center ${contactAnim.isVisible ? 'animate-scale-in' : 'opacity-0-init scale-95-init'}`}
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-                Let's Collaborate
+                {t('contact.title')}
               </h2>
               <p className="text-base md:text-lg lg:text-xl text-orange-50 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
-                VexarLabs is open to collaboration with developers, designers, transport industry professionals, digital creators, and strategic partners.
+                {t('contact.description')}
               </p>
               <p className="text-sm md:text-base lg:text-lg text-orange-100 mb-6 md:mb-10 px-4">
-                Contact us to explore partnership opportunities.
+                {t('contact.cta')}
               </p>
               <a 
                 href="mailto:contact@vexarlabs.com" 
