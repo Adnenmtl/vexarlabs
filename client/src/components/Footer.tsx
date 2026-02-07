@@ -11,9 +11,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col items-center md:items-start gap-4">
             <img 
-              src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/LnUEcZMewvhxQSZF.png" 
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/BSeseeWmcJDkjPoO.png" 
               alt="VexarLabs" 
-              className="h-6 w-auto object-contain"
+              className="h-8 w-auto object-contain"
             />
             <span className="text-sm text-slate-600">
               © {new Date().getFullYear()} VexarLabs. Building practical digital solutions.
