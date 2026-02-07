@@ -12,6 +12,8 @@ import AppPrivacy from "./pages/AppPrivacy";
 import RondeSecuriteTaxi from "./pages/RondeSecuriteTaxi";
 import FMarabia from "./pages/app/FMarabia";
 import Influvo from "./pages/app/Influvo";
+import UnderConstruction from "./pages/UnderConstruction";
+import { useState, useEffect } from "react";
 
 function Router() {
   return (
@@ -31,6 +33,29 @@ function Router() {
 }
 
 function App() {
+  const [isUnlocked, setIsUnlocked] = useState(false);
+
+  useEffect(() => {
+    // Check if site is already unlocked in this session
+    const unlocked = sessionStorage.getItem("vexarlabs_unlocked");
+    if (unlocked === "true") {
+      setIsUnlocked(true);
+    }
+  }, []);
+
+  if (!isUnlocked) {
+    return (
+      <ErrorBoundary>
+        <ThemeProvider defaultTheme="light">
+          <TooltipProvider>
+            <Toaster />
+            <UnderConstruction onUnlock={() => setIsUnlocked(true)} />
+          </TooltipProvider>
+        </ThemeProvider>
+      </ErrorBoundary>
+    );
+  }
+
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
