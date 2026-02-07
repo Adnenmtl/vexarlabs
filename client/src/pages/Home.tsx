@@ -1,13 +1,13 @@
 /*
-  VexarLabs Home Page - Professional Tech Studio
+  VexarLabs Home Page - Creative & Bold Design
   
-  Québec-based technology studio focused on mobility, media platforms, and creator economy tools.
+  Orange/Coral + Cyan/Turquoise palette with asymmetric layouts
 */
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
-import { ExternalLink, Smartphone, Globe, Sparkles, X, Code, Zap, Shield, Layers } from "lucide-react";
+import { ExternalLink, Smartphone, Globe, Sparkles, X, Code, Zap, Shield, Layers, ArrowRight, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
 
 const products = [
@@ -27,7 +27,7 @@ const products = [
     status: "Advanced Development / Deployment Phase",
     platforms: ["iOS", "Android"],
     icon: Smartphone,
-    color: "bg-emerald-500",
+    gradient: "from-orange-500 to-red-500",
     appIcon: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/xaZHlbEgJmsATdJf.png",
     screenshots: [
       "https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/xLWDDYoUpTABhfWp.png",
@@ -53,7 +53,7 @@ const products = [
     platforms: ["iOS", "Android"],
     website: "https://fmarabia.app",
     icon: Globe,
-    color: "bg-blue-500",
+    gradient: "from-cyan-500 to-blue-500",
     appIcon: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=200&h=200&fit=crop",
   },
   {
@@ -72,7 +72,7 @@ const products = [
     platforms: ["Web", "iOS", "Android"],
     website: "https://influvo.ai",
     icon: Sparkles,
-    color: "bg-violet-500",
+    gradient: "from-purple-500 to-pink-500",
     appIcon: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=200&h=200&fit=crop",
   },
 ];
@@ -81,190 +81,195 @@ export default function Home() {
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-slate-50">
       <Header />
       
       <main className="flex-1 pt-20">
-        {/* Hero Section */}
-        <section className="py-20 md:py-28 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50/30 to-white"></div>
-          <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%231e3a8a" fill-opacity="1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")'}}
-          ></div>
-          <div className="container relative z-10">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-foreground">
-                Building Practical Digital Solutions for Real-World Needs
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-                Québec-based technology studio focused on mobility, media platforms, and creator economy tools.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <a 
-                  href="#products"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                >
-                  View Our Products
-                </a>
-                <a 
-                  href="#contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-border text-foreground rounded-lg font-medium hover:border-primary/30 hover:shadow-md transition-all"
-                >
-                  Contact Us
-                </a>
+        {/* Hero Section - Bold & Asymmetric */}
+        <section className="relative overflow-hidden bg-white">
+          {/* Decorative background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-cyan-50 opacity-60"></div>
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-orange-100/30 to-transparent"></div>
+          
+          {/* Geometric shapes */}
+          <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-orange-400/10 to-cyan-400/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-tr from-cyan-400/10 to-orange-400/10 rounded-full blur-3xl"></div>
+          
+          <div className="container relative z-10 py-24 md:py-32">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="inline-block px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-semibold rounded-full mb-6">
+                  Québec-based Tech Studio
+                </div>
+                <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+                  Building <span className="text-gradient-sunset">Practical</span> Digital Solutions
+                </h1>
+                <p className="text-xl text-slate-600 leading-relaxed mb-8">
+                  We focus on mobility, media platforms, and creator economy tools that solve real-world challenges.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <a 
+                    href="#products"
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold hover:shadow-coral hover:scale-105 transition-all"
+                  >
+                    View Our Products
+                    <ArrowRight className="w-5 h-5" />
+                  </a>
+                  <a 
+                    href="#contact"
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-white border-2 border-cyan-500 text-cyan-600 rounded-xl font-semibold hover:bg-cyan-50 transition-all"
+                  >
+                    Contact Us
+                  </a>
+                </div>
+              </div>
+              
+              {/* Visual element */}
+              <div className="hidden md:block relative">
+                <div className="relative w-full h-96">
+                  <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl rotate-6 shadow-coral"></div>
+                  <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-3xl -rotate-6 shadow-cyan"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-64 h-64 bg-white rounded-2xl shadow-2xl flex items-center justify-center">
+                      <Code className="w-32 h-32 text-orange-500" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* About VexarLabs */}
-        <section id="about" className="py-16 bg-white">
-          <div className="container">
-            <h2 className="text-3xl font-bold mb-6">About VexarLabs</h2>
-            <div className="max-w-4xl space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                VexarLabs is a Québec-based technology studio developing focused digital solutions designed to solve concrete operational and media-related challenges.
-              </p>
-              <p>
-                We build scalable applications with lean architecture and automation-first thinking.
-              </p>
-              <p className="font-medium text-foreground">
-                Our objective is simple: build products that are practical, reliable, and growth-ready.
-              </p>
+        {/* About VexarLabs - Diagonal Section */}
+        <section id="about" className="relative bg-gradient-to-br from-slate-900 to-slate-800 text-white diagonal-top">
+          <div className="container py-20">
+            <div className="max-w-4xl">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                About <span className="text-gradient-coral">VexarLabs</span>
+              </h2>
+              <div className="space-y-6 text-lg text-slate-300 leading-relaxed">
+                <p>
+                  VexarLabs is a Québec-based technology studio developing focused digital solutions designed to solve concrete operational and media-related challenges.
+                </p>
+                <p>
+                  We build scalable applications with lean architecture and automation-first thinking.
+                </p>
+                <p className="text-xl font-semibold text-white">
+                  Our objective is simple: build products that are practical, reliable, and growth-ready.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Product Portfolio */}
-        <section id="products" className="py-16 bg-gradient-to-b from-gray-50/50 to-white">
+        {/* Product Portfolio - Bold Cards */}
+        <section id="products" className="py-20 bg-slate-50">
           <div className="container">
-            <h2 className="text-3xl font-bold mb-8">Product Portfolio</h2>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Product <span className="text-gradient-sunset">Portfolio</span>
+              </h2>
+              <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+                Three focused products solving real challenges in mobility, media, and creator economy.
+              </p>
+            </div>
             
-            <div className="grid gap-6">
-              {products.map((product) => {
+            <div className="grid gap-8 max-w-6xl mx-auto">
+              {products.map((product, index) => {
                 const IconComponent = product.icon;
+                const isReversed = index % 2 === 1;
+                
                 return (
                   <div 
                     key={product.id}
-                    className="p-6 md:p-8 bg-white border border-border rounded-xl hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+                    className={`bg-white rounded-3xl shadow-xl overflow-hidden card-hover ${
+                      isReversed ? 'md:ml-12' : 'md:mr-12'
+                    }`}
                   >
-                    <div className="flex flex-col md:flex-row md:items-start gap-6">
-                      <div className="flex gap-4 flex-1">
-                        {product.appIcon ? (
-                          <img 
-                            src={product.appIcon} 
-                            alt={`${product.name} icon`}
-                            className="w-16 h-16 rounded-xl flex-shrink-0 object-cover"
-                          />
-                        ) : (
-                          <div className={`w-16 h-16 rounded-xl ${product.color} flex items-center justify-center flex-shrink-0`}>
+                    <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 p-8`}>
+                      {/* Content */}
+                      <div className="flex-1">
+                        <div className="flex items-start gap-4 mb-4">
+                          <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${product.gradient} flex items-center justify-center flex-shrink-0 shadow-lg`}>
                             <IconComponent className="w-8 h-8 text-white" />
                           </div>
-                        )}
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
-                            <h3 className="text-xl font-bold">{product.name}</h3>
-                            {product.website && (
-                              <a 
-                                href={product.website} 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="text-muted-foreground hover:text-primary transition-colors"
-                              >
-                                <ExternalLink className="w-4 h-4" />
-                              </a>
-                            )}
-                          </div>
-                          
-                          <div className="mb-3">
-                            <span className="text-sm font-medium text-primary">{product.category}</span>
-                            <span className="text-sm text-muted-foreground"> • {product.market}</span>
-                          </div>
-                          
-                          <p className="text-muted-foreground mb-4">
-                            {product.description}
-                          </p>
-                          
-                          <div className="mb-4">
-                            <h4 className="text-sm font-semibold mb-2">Key Features:</h4>
-                            <ul className="space-y-1">
-                              {product.features.map((feature, index) => (
-                                <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
-                                  <span className="text-primary mt-1">•</span>
-                                  <span>{feature}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                          
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {product.platforms.map((platform) => (
-                              <span 
-                                key={platform}
-                                className="text-xs px-3 py-1 bg-secondary text-secondary-foreground rounded-full font-medium"
-                              >
-                                {platform}
-                              </span>
-                            ))}
-                            <span className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full font-medium">
-                              {product.status}
-                            </span>
-                          </div>
-                          
-                          {/* Store badges for Ronde Sécurité Taxi */}
-                          {product.id === "ronde-securite-taxi" && product.appStoreUrl && (
-                            <div className="flex gap-2 mb-4">
-                              <a 
-                                href={product.appStoreUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-block"
-                              >
-                                <img 
-                                  src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1705363200" 
-                                  alt="Download on the App Store"
-                                  className="h-10"
-                                />
-                              </a>
-                              <a 
-                                href={product.playStoreUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-block"
-                              >
-                                <img 
-                                  src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
-                                  alt="Get it on Google Play"
-                                  className="h-10"
-                                />
-                              </a>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-3 mb-2">
+                              <h3 className="text-2xl font-bold">{product.name}</h3>
+                              {product.website && (
+                                <a 
+                                  href={product.website} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="text-orange-500 hover:text-orange-600 transition-colors"
+                                >
+                                  <ExternalLink className="w-5 h-5" />
+                                </a>
+                              )}
                             </div>
-                          )}
-                          
-                          <div className="flex gap-4">
-                            <Link 
-                              href={`/app/${product.id}`}
-                              className="text-primary hover:text-primary/80 font-medium transition-colors text-sm inline-block"
-                            >
-                              Learn More →
-                            </Link>
-                            <Link 
-                              href={`/app/${product.id}/privacy`}
-                              className="text-muted-foreground hover:text-primary font-medium transition-colors text-sm inline-block"
-                            >
-                              Privacy Policy →
-                            </Link>
+                            <div className="mb-3">
+                              <span className="text-sm font-semibold text-orange-600">{product.category}</span>
+                              <span className="text-sm text-slate-500"> • {product.market}</span>
+                            </div>
                           </div>
+                        </div>
+                        
+                        <p className="text-slate-600 mb-6 text-lg">
+                          {product.description}
+                        </p>
+                        
+                        <div className="mb-6">
+                          <h4 className="text-sm font-bold mb-3 text-slate-900">Key Features:</h4>
+                          <div className="grid gap-2">
+                            {product.features.map((feature, idx) => (
+                              <div key={idx} className="flex items-start gap-2">
+                                <CheckCircle2 className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" />
+                                <span className="text-sm text-slate-600">{feature}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        
+                        <div className="flex flex-wrap gap-2 mb-6">
+                          {product.platforms.map((platform) => (
+                            <span 
+                              key={platform}
+                              className="px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium"
+                            >
+                              {platform}
+                            </span>
+                          ))}
+                          <span className="px-3 py-1 bg-gradient-to-r from-orange-100 to-orange-200 text-orange-700 rounded-lg text-sm font-semibold">
+                            {product.status}
+                          </span>
+                        </div>
+                        
+                        <div className="flex gap-4">
+                          <Link 
+                            href={`/app/${product.id}`}
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold hover:shadow-coral hover:scale-105 transition-all"
+                          >
+                            Learn More
+                            <ArrowRight className="w-4 h-4" />
+                          </Link>
+                          <Link 
+                            href={`/app/${product.id}/privacy`}
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-semibold hover:bg-slate-200 transition-all"
+                          >
+                            Privacy Policy
+                          </Link>
                         </div>
                       </div>
                       
+                      {/* Screenshots */}
                       {product.screenshots && (
-                        <div className="flex gap-2 overflow-x-auto md:overflow-visible">
-                          {product.screenshots.map((screenshot, index) => (
+                        <div className="flex md:flex-col gap-3 overflow-x-auto md:overflow-visible">
+                          {product.screenshots.slice(0, 2).map((screenshot, idx) => (
                             <img 
-                              key={index}
+                              key={idx}
                               src={screenshot} 
-                              alt={`${product.name} screenshot ${index + 1}`}
-                              className="w-24 md:w-32 h-auto rounded-lg shadow-md flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity"
+                              alt={`${product.name} screenshot ${idx + 1}`}
+                              className="w-32 md:w-40 h-auto rounded-xl shadow-lg flex-shrink-0 cursor-pointer hover:scale-105 transition-transform"
                               onClick={() => setLightboxImage(screenshot)}
                             />
                           ))}
@@ -278,180 +283,125 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Development Approach */}
-        <section className="py-16 bg-secondary/30">
+        {/* Development Approach - Grid Layout */}
+        <section className="py-20 bg-white">
           <div className="container">
-            <h2 className="text-3xl font-bold mb-6">Development Approach</h2>
-            <p className="text-muted-foreground mb-8 max-w-3xl">
-              At VexarLabs, we follow a structured development methodology:
-            </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl">
-              <div className="p-6 bg-white rounded-lg border border-border">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-semibold mb-2">Problem-first product design</h3>
-                <p className="text-sm text-muted-foreground">Starting with real-world challenges to build meaningful solutions</p>
-              </div>
-              <div className="p-6 bg-white rounded-lg border border-border">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Layers className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-semibold mb-2">Lean and modular architecture</h3>
-                <p className="text-sm text-muted-foreground">Building flexible systems that adapt to changing requirements</p>
-              </div>
-              <div className="p-6 bg-white rounded-lg border border-border">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Code className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-semibold mb-2">Scalable infrastructure</h3>
-                <p className="text-sm text-muted-foreground">Designing for growth from day one</p>
-              </div>
-              <div className="p-6 bg-white rounded-lg border border-border">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-semibold mb-2">Automation-driven workflows</h3>
-                <p className="text-sm text-muted-foreground">Reducing manual work through intelligent automation</p>
-              </div>
-              <div className="p-6 bg-white rounded-lg border border-border">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Shield className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-semibold mb-2">Long-term maintainability focus</h3>
-                <p className="text-sm text-muted-foreground">Building systems that stand the test of time</p>
-              </div>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Development <span className="text-gradient-sunset">Approach</span>
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                At VexarLabs, we follow a structured development methodology that prioritizes functionality and market relevance.
+              </p>
             </div>
-            <p className="text-muted-foreground mt-8 max-w-3xl">
-              We prioritize functionality and market relevance over unnecessary complexity.
-            </p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {[
+                { icon: Zap, title: "Problem-first product design", desc: "Starting with real-world challenges to build meaningful solutions", color: "orange" },
+                { icon: Layers, title: "Lean and modular architecture", desc: "Building flexible systems that adapt to changing requirements", color: "cyan" },
+                { icon: Code, title: "Scalable infrastructure", desc: "Designing for growth from day one", color: "orange" },
+                { icon: Zap, title: "Automation-driven workflows", desc: "Reducing manual work through intelligent automation", color: "cyan" },
+                { icon: Shield, title: "Long-term maintainability", desc: "Building systems that stand the test of time", color: "orange" },
+              ].map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div 
+                    key={index}
+                    className="p-6 bg-slate-50 rounded-2xl border-2 border-slate-100 hover:border-orange-200 hover:shadow-lg transition-all"
+                  >
+                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${
+                      item.color === 'orange' ? 'from-orange-400 to-orange-600' : 'from-cyan-400 to-cyan-600'
+                    } flex items-center justify-center mb-4 shadow-lg`}>
+                      <Icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="font-bold mb-2 text-lg">{item.title}</h3>
+                    <p className="text-sm text-slate-600">{item.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
 
-        {/* Strategic Positioning */}
-        <section className="py-16 bg-white">
-          <div className="container">
-            <h2 className="text-3xl font-bold mb-6">Strategic Positioning</h2>
-            <div className="max-w-4xl space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Based in Québec, VexarLabs develops solutions tailored to local operational realities while building platforms capable of global scalability.
-              </p>
-              <p className="font-medium text-foreground">
-                We operate at the intersection of:
-              </p>
-              <div className="grid md:grid-cols-2 gap-4 mt-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span>Mobility infrastructure</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span>Media distribution</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span>Creator economy systems</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span>Applied AI technologies</span>
-                </div>
+        {/* Strategic Positioning - Diagonal Section */}
+        <section className="relative bg-gradient-to-br from-cyan-600 to-cyan-700 text-white diagonal-top">
+          <div className="container py-20">
+            <div className="max-w-4xl">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Strategic Positioning
+              </h2>
+              <div className="space-y-6 text-lg text-cyan-50 leading-relaxed mb-8">
+                <p>
+                  Based in Québec, VexarLabs develops solutions tailored to local operational realities while building platforms capable of global scalability.
+                </p>
+                <p className="text-xl font-semibold text-white">
+                  We operate at the intersection of:
+                </p>
+              </div>
+              <div className="grid md:grid-cols-2 gap-4">
+                {[
+                  "Mobility infrastructure",
+                  "Media distribution",
+                  "Creator economy systems",
+                  "Applied AI technologies"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center gap-3 p-4 bg-white/10 backdrop-blur-sm rounded-xl">
+                    <div className="w-2 h-2 rounded-full bg-orange-400"></div>
+                    <span className="font-medium">{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
         {/* Technology Stack */}
-        <section className="py-16 bg-gradient-to-b from-gray-50/50 to-white">
+        <section className="py-20 bg-slate-50">
           <div className="container">
-            <h2 className="text-3xl font-bold mb-6">Technology Stack</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl">
-              <div className="p-6 bg-white rounded-lg border border-border">
-                <h3 className="font-semibold mb-2">Cross-platform mobile development</h3>
-                <p className="text-sm text-muted-foreground">Native iOS and Android experiences</p>
-              </div>
-              <div className="p-6 bg-white rounded-lg border border-border">
-                <h3 className="font-semibold mb-2">Cloud-based backend infrastructure</h3>
-                <p className="text-sm text-muted-foreground">Scalable and reliable services</p>
-              </div>
-              <div className="p-6 bg-white rounded-lg border border-border">
-                <h3 className="font-semibold mb-2">Modular system architecture</h3>
-                <p className="text-sm text-muted-foreground">Flexible and maintainable code</p>
-              </div>
-              <div className="p-6 bg-white rounded-lg border border-border">
-                <h3 className="font-semibold mb-2">Automation pipelines</h3>
-                <p className="text-sm text-muted-foreground">Efficient deployment and testing</p>
-              </div>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Technology <span className="text-gradient-sunset">Stack</span>
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              {[
+                "Cross-platform mobile development",
+                "Cloud-based backend infrastructure",
+                "Modular system architecture",
+                "Automation pipelines"
+              ].map((tech, index) => (
+                <div 
+                  key={index}
+                  className="p-6 bg-white rounded-2xl border-2 border-slate-100 hover:border-cyan-200 hover:shadow-lg transition-all text-center"
+                >
+                  <h3 className="font-bold text-slate-900">{tech}</h3>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* In Development */}
-        <section className="py-16 bg-secondary/30">
-          <div className="container">
-            <h2 className="text-3xl font-bold mb-6">In Development</h2>
-            <p className="text-muted-foreground mb-6 max-w-3xl">
-              Upcoming focus areas:
-            </p>
-            <div className="grid md:grid-cols-2 gap-4 max-w-3xl">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-primary"></div>
-                <span className="text-muted-foreground">AI-powered operational systems</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-primary"></div>
-                <span className="text-muted-foreground">Intelligent automation frameworks</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-primary"></div>
-                <span className="text-muted-foreground">Interactive digital environments</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-primary"></div>
-                <span className="text-muted-foreground">Scalable SaaS infrastructure models</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Collaboration */}
-        <section id="contact" className="py-16 bg-white">
-          <div className="container">
-            <h2 className="text-3xl font-bold mb-6">Collaboration</h2>
-            <div className="max-w-4xl">
-              <p className="text-muted-foreground mb-6">
-                VexarLabs is open to collaboration with:
+        {/* Collaboration - CTA Section */}
+        <section id="contact" className="relative bg-gradient-to-br from-orange-500 to-orange-600 text-white overflow-hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzR2LTRoLTJ2NGgtNHYyaDR2NGgydi00aDR2LTJoLTR6bTAtMzBWMGgtMnY0aC00djJoNHY0aDJWNmg0VjRoLTR6TTYgMzR2LTRINHY0SDB2Mmg0djRoMnYtNGg0di0ySDZ6TTYgNFYwSDR2NEgwdjJoNHY0aDJWNmg0VjRINnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20"></div>
+          
+          <div className="container relative z-10 py-20">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Let's Collaborate
+              </h2>
+              <p className="text-xl text-orange-50 mb-8 max-w-2xl mx-auto">
+                VexarLabs is open to collaboration with developers, designers, transport industry professionals, digital creators, and strategic partners.
               </p>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span className="text-muted-foreground">Developers</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span className="text-muted-foreground">Designers</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span className="text-muted-foreground">Transport industry professionals</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span className="text-muted-foreground">Digital creators</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span className="text-muted-foreground">Strategic partners</span>
-                </div>
-              </div>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-lg text-orange-100 mb-10">
                 Contact us to explore partnership opportunities.
               </p>
               <a 
                 href="mailto:contact@vexarlabs.com" 
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center gap-2 px-10 py-5 bg-white text-orange-600 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all"
               >
                 contact@vexarlabs.com
+                <ArrowRight className="w-6 h-6" />
               </a>
             </div>
           </div>
@@ -460,22 +410,22 @@ export default function Home() {
 
       <Footer />
 
-      {/* Lightbox for screenshots */}
+      {/* Lightbox */}
       {lightboxImage && (
         <div 
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
           onClick={() => setLightboxImage(null)}
         >
           <button
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            className="absolute top-4 right-4 text-white hover:text-orange-400 transition-colors"
             onClick={() => setLightboxImage(null)}
           >
-            <X className="w-8 h-8" />
+            <X className="w-10 h-10" />
           </button>
           <img 
             src={lightboxImage} 
             alt="Enlarged screenshot"
-            className="max-w-full max-h-full object-contain rounded-lg"
+            className="max-w-full max-h-full object-contain rounded-2xl"
             onClick={(e) => e.stopPropagation()}
           />
         </div>

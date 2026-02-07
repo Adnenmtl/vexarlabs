@@ -1,5 +1,5 @@
 /*
-  VexarLabs Header - Minimalist with Color Accent + Auto-hide on scroll
+  VexarLabs Header - Creative & Bold Design with Auto-hide
 */
 
 import { Link } from "wouter";
@@ -32,29 +32,38 @@ export default function Header() {
 
   return (
     <header 
-      className={`py-5 border-b border-border bg-white/80 backdrop-blur-sm fixed left-0 right-0 z-50 transition-transform duration-150 ${
+      className={`py-4 border-b-2 border-orange-100 bg-white/95 backdrop-blur-md fixed left-0 right-0 z-50 transition-transform duration-150 shadow-sm ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
       style={{ top: 0 }}
     >
       <div className="container flex items-center justify-between">
-        <Link href="/">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <img 
             src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/pCBMueMfEDSMWROP.svg" 
             alt="VexarLabs Logo" 
-            className="h-12 object-contain"
+            className="h-10 object-contain"
           />
         </Link>
-        <nav className="flex items-center gap-6">
-          <Link href="/#products" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+        <nav className="flex items-center gap-8">
+          <a 
+            href="/#products" 
+            className="text-sm font-semibold text-slate-700 hover:text-orange-600 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all hover:after:w-full"
+          >
             Products
-          </Link>
-          <Link href="/#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+          </a>
+          <a 
+            href="/#about" 
+            className="text-sm font-semibold text-slate-700 hover:text-orange-600 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-600 after:transition-all hover:after:w-full"
+          >
             About
-          </Link>
-          <Link href="/#contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+          </a>
+          <a 
+            href="/#contact" 
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-coral hover:scale-105 transition-all text-sm"
+          >
             Contact
-          </Link>
+          </a>
         </nav>
       </div>
     </header>

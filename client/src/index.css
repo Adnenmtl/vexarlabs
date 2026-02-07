@@ -1,132 +1,185 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
-
-/*
-  VexarLabs - Minimalist Theme with Subtle Colors
-  
-  Design Philosophy:
-  - Clean white background
-  - Subtle indigo/blue accent color
-  - Modern typography (Outfit + DM Sans)
-  - Professional and refined
-*/
-
-@theme inline {
-  --font-sans: "DM Sans", system-ui, sans-serif;
-  --font-display: "Outfit", system-ui, sans-serif;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-}
-
-:root {
-  --radius: 0.75rem;
-  --background: oklch(0.995 0 0);
-  --foreground: oklch(0.205 0.02 265);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.205 0.02 265);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.205 0.02 265);
-  /* Indigo accent color */
-  --primary: oklch(0.55 0.2 265);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.965 0.01 265);
-  --secondary-foreground: oklch(0.35 0.1 265);
-  --muted: oklch(0.965 0.005 265);
-  --muted-foreground: oklch(0.5 0.02 265);
-  --accent: oklch(0.95 0.02 265);
-  --accent-foreground: oklch(0.35 0.15 265);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.01 265);
-  --input: oklch(0.92 0.01 265);
-  --ring: oklch(0.55 0.2 265);
-}
 
 @layer base {
+  :root {
+    /* Creative & Bold Color System - Orange/Coral + Cyan/Turquoise */
+    --background: 0 0% 100%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary: Coral Orange */
+    --primary: 12 100% 64%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Cyan/Turquoise */
+    --secondary: 188 94% 43%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Accent: Turquoise */
+    --accent: 173 80% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 12 100% 64%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 12 100% 64%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 188 94% 43%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 173 80% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 12 100% 64%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+  }
+
   * {
-    @apply border-border outline-ring/50;
+    border-color: hsl(var(--border));
   }
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "Outfit", system-ui, sans-serif;
-  }
-  
-  button:not(:disabled),
-  [role="button"]:not([aria-disabled="true"]),
-  [type="button"]:not(:disabled),
-  [type="submit"]:not(:disabled),
-  [type="reset"]:not(:disabled),
-  a[href],
-  select:not(:disabled),
-  input[type="checkbox"]:not(:disabled),
-  input[type="radio"]:not(:disabled) {
-    @apply cursor-pointer;
-  }
-  
+
   html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 5rem; /* Compense la hauteur du header sticky */
     overflow-x: hidden;
   }
-  
+
   body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
-    max-width: 100vw;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+    font-weight: 700;
+  }
+
+  /* Scroll padding for fixed header */
+  html {
+    scroll-padding-top: 5rem;
   }
 }
 
-@layer components {
+@layer utilities {
+  /* Container with auto-centering and responsive padding */
   .container {
-    width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 1280px;
   }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
-
+  
   @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
     .container {
       padding-left: 2rem;
       padding-right: 2rem;
     }
   }
 
-  @media (min-width: 1024px) {
-    .container {
-      padding-left: 4rem;
-      padding-right: 4rem;
-      max-width: 1200px;
-    }
+  /* Flex utilities with min-width/height fix */
+  .flex {
+    min-width: 0;
+    min-height: 0;
+  }
+
+  /* Gradient utilities for the new design */
+  .gradient-coral {
+    background: linear-gradient(135deg, #FF6B4A 0%, #FF8C6B 100%);
+  }
+
+  .gradient-cyan {
+    background: linear-gradient(135deg, #06B6D4 0%, #14B8A6 100%);
+  }
+
+  .gradient-sunset {
+    background: linear-gradient(135deg, #FF6B4A 0%, #06B6D4 100%);
+  }
+
+  /* Text gradients */
+  .text-gradient-coral {
+    background: linear-gradient(135deg, #FF6B4A 0%, #FF8C6B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-sunset {
+    background: linear-gradient(135deg, #FF6B4A 0%, #06B6D4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Asymmetric section utilities */
+  .diagonal-top {
+    clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+    margin-top: -3rem;
+    padding-top: 5rem;
+  }
+
+  .diagonal-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+    padding-bottom: 5rem;
+    margin-bottom: -3rem;
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    transition: all 0.3s;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  /* Bold shadows */
+  .shadow-coral {
+    box-shadow: 0 10px 40px -10px rgba(255, 107, 74, 0.3);
+  }
+
+  .shadow-cyan {
+    box-shadow: 0 10px 40px -10px rgba(6, 182, 212, 0.3);
   }
 }
