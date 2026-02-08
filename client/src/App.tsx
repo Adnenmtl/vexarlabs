@@ -18,8 +18,8 @@ import FMarabia from "./pages/app/FMarabia";
 import Influvo from "./pages/app/Influvo";
 import UnderConstruction from "./pages/UnderConstruction";
 import { useState, useEffect } from "react";
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path="/" component={Home} />

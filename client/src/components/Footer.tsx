@@ -8,10 +8,12 @@ import { Mail } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { trpc } from "@/lib/trpc";
 
 export default function Footer() {
   const { t } = useLanguage();
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const verifyRecaptcha = trpc.recaptcha.verify.useMutation();
   const [email, setEmail] = useState("");
   const [isSubscribing, setIsSubscribing] = useState(false);
 
@@ -36,14 +38,25 @@ export default function Footer() {
       
       const recaptchaToken = await executeRecaptcha('newsletter_subscribe');
       console.log('reCAPTCHA token:', recaptchaToken);
-      // In production, send this token to your backend for verification
       
-      // Simulate newsletter subscription (replace with actual API call)
-      setTimeout(() => {
-        toast.success(t('newsletter.success'));
-        setEmail("");
+      // Verify reCAPTCHA token with backend
+      const verifyResult = await verifyRecaptcha.mutateAsync({
+        token: recaptchaToken,
+        action: 'newsletter_subscribe',
+      });
+      
+      if (!verifyResult.success) {
+        toast.error('reCAPTCHA verification failed. Please try again.');
         setIsSubscribing(false);
-      }, 1000);
+        return;
+      }
+      
+      console.log('reCAPTCHA verified. Score:', verifyResult.score);
+      
+      // TODO: Send email to your newsletter service (Mailchimp, SendGrid, etc.)
+      toast.success(t('newsletter.success'));
+      setEmail("");
+      setIsSubscribing(false);
     } catch (error) {
       console.error('Newsletter subscription error:', error);
       toast.error(t('newsletter.error'));

@@ -12,6 +12,7 @@ import { ExternalLink, Smartphone, Globe, Sparkles, X, Code, Zap, Shield, Layers
 import { useState, useEffect } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAuth } from "@/_core/hooks/useAuth";
 
 const products = [
   {
@@ -81,6 +82,10 @@ const products = [
 ];
 
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   const { t } = useLanguage();
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [scrollY, setScrollY] = useState(0);

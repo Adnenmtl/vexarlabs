@@ -12,10 +12,12 @@ import { useState } from "react";
 import { toast } from "sonner";
 import emailjs from '@emailjs/browser';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { trpc } from "@/lib/trpc";
 
 export default function Contact() {
   const { t } = useLanguage();
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const verifyRecaptcha = trpc.recaptcha.verify.useMutation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -48,7 +50,20 @@ export default function Contact() {
       
       const recaptchaToken = await executeRecaptcha('contact_form');
       console.log('reCAPTCHA token:', recaptchaToken);
-      // In production, send this token to your backend for verification
+      
+      // Verify reCAPTCHA token with backend
+      const verifyResult = await verifyRecaptcha.mutateAsync({
+        token: recaptchaToken,
+        action: 'contact_form',
+      });
+      
+      if (!verifyResult.success) {
+        toast.error('reCAPTCHA verification failed. Please try again.');
+        setIsSubmitting(false);
+        return;
+      }
+      
+      console.log('reCAPTCHA verified. Score:', verifyResult.score);
 
       // EmailJS configuration
       // Replace these with your actual EmailJS credentials from https://www.emailjs.com/
