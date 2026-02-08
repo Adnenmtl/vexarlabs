@@ -4,7 +4,8 @@
 
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Globe } from "lucide-react";
+import { Globe, Mail } from "lucide-react";
+import { toast } from "sonner";
 
 const CORRECT_PASSWORD = "Vx@rL4bs#2026!Qc";
 
@@ -18,6 +19,8 @@ export default function UnderConstruction({ onUnlock }: UnderConstructionProps) 
   const [error, setError] = useState(false);
   const [shake, setShake] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+  const [email, setEmail] = useState("");
+  const [isSubscribing, setIsSubscribing] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -145,7 +148,56 @@ export default function UnderConstruction({ onUnlock }: UnderConstructionProps) 
             </button>
           </form>
 
+          {/* Newsletter Section */}
           <div className="mt-6 pt-6 border-t border-slate-200">
+            <div className="text-center mb-4">
+              <div className="inline-flex items-center justify-center w-12 h-12 bg-cyan-100 rounded-full mb-3">
+                <Mail className="w-6 h-6 text-cyan-600" />
+              </div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-1">
+                {t('newsletter.title')}
+              </h3>
+              <p className="text-sm text-slate-600">
+                {t('newsletter.description')}
+              </p>
+            </div>
+            
+            <form 
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                  toast.error(t('newsletter.invalidEmail'));
+                  return;
+                }
+                setIsSubscribing(true);
+                // Simulate newsletter subscription (replace with actual API call)
+                setTimeout(() => {
+                  toast.success(t('newsletter.success'));
+                  setEmail("");
+                  setIsSubscribing(false);
+                }, 1000);
+              }}
+              className="flex gap-2"
+            >
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder={t('newsletter.placeholder')}
+                className="flex-1 px-4 py-2 rounded-lg border-2 border-slate-200 focus:border-cyan-500 focus:outline-none text-sm"
+                disabled={isSubscribing}
+              />
+              <button
+                type="submit"
+                disabled={isSubscribing}
+                className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-semibold rounded-lg transition-all shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+              >
+                {t('newsletter.button')}
+              </button>
+            </form>
+          </div>
+          
+          <div className="mt-4 pt-4 border-t border-slate-200">
             <p className="text-center text-sm text-slate-500">
               © {new Date().getFullYear()} VexarLabs. {t('construction.footer')}
             </p>

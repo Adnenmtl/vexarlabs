@@ -89,17 +89,26 @@ Pour modifier les couleurs du template, cherchez et remplacez :
 **Cyan (couleur secondaire) :**
 - Actuellement non utilisé dans le template, mais vous pouvez l'ajouter
 
-### Modifier le Logo
+### Configurer le Logo
 
-Le template inclut déjà le logo VexarLabs hébergé sur CDN :
+Le template inclut une balise image pour le logo VexarLabs :
 ```html
-<img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663027599823/iycbmUqaIaUQsaLq.png" alt="VexarLabs" style="max-width: 200px; height: auto; margin-bottom: 10px;">
+<img src="https://votre-domaine.com/images/logo-vexarlabs.png" alt="VexarLabs" style="max-width: 200px; height: auto; margin-bottom: 10px;">
 ```
 
-**Pour utiliser votre propre logo :**
-1. Uploadez votre logo sur un hébergement public (Imgur, Cloudinary, votre propre serveur)
-2. Remplacez l'URL dans le template
-3. Ajustez `max-width` si nécessaire (recommandé : 150-250px)
+**⚠️ IMPORTANT : Vous devez remplacer l'URL du logo**
+
+1. **Une fois votre site déployé**, le logo sera accessible à : `https://votre-domaine.manus.space/images/logo-vexarlabs.png`
+2. **Remplacez** `https://votre-domaine.com` par votre domaine réel dans le template
+3. **Exemple** : Si votre domaine est `vexarlabs.manus.space`, utilisez :
+   ```html
+   <img src="https://vexarlabs.manus.space/images/logo-vexarlabs.png" alt="VexarLabs" style="max-width: 200px; height: auto; margin-bottom: 10px;">
+   ```
+
+**Alternative : Utiliser un autre hébergement**
+- Uploadez votre logo sur Imgur, Cloudinary, ou votre propre serveur
+- Utilisez l'URL publique dans le template
+- Ajustez `max-width` si nécessaire (recommandé : 150-250px)
 
 ## 🔧 Dépannage
 

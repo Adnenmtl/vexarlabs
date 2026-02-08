@@ -350,6 +350,15 @@ const translations: Record<Language, Record<string, string>> = {
     'notFound.cta.home': 'Go Home',
     'notFound.cta.back': 'Go Back',
     'notFound.quickLinks': 'Quick Links',
+    
+    // Newsletter
+    'newsletter.title': 'Stay Updated',
+    'newsletter.description': 'Subscribe to our newsletter to receive the latest news and updates about our products.',
+    'newsletter.placeholder': 'Enter your email',
+    'newsletter.button': 'Subscribe',
+    'newsletter.success': 'Thank you for subscribing!',
+    'newsletter.error': 'An error occurred. Please try again.',
+    'newsletter.invalidEmail': 'Please enter a valid email address',
   },
   fr: {
     // Header
@@ -654,5 +663,14 @@ const translations: Record<Language, Record<string, string>> = {
     'notFound.cta.home': 'Retour à l\'accueil',
     'notFound.cta.back': 'Retour',
     'notFound.quickLinks': 'Liens rapides',
+    
+    // Newsletter
+    'newsletter.title': 'Restez informé',
+    'newsletter.description': 'Abonnez-vous à notre infolettre pour recevoir les dernières nouvelles et mises à jour sur nos produits.',
+    'newsletter.placeholder': 'Entrez votre courriel',
+    'newsletter.button': 'S\'abonner',
+    'newsletter.success': 'Merci de vous être abonné !',
+    'newsletter.error': 'Une erreur s\'est produite. Veuillez réessayer.',
+    'newsletter.invalidEmail': 'Veuillez entrer une adresse courriel valide',
   },
 };
