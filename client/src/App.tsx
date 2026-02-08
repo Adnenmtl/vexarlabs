@@ -5,6 +5,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -53,10 +54,15 @@ function App() {
       <ErrorBoundary>
         <ThemeProvider defaultTheme="light">
           <LanguageProvider>
-            <TooltipProvider>
-              <Toaster />
-              <UnderConstruction onUnlock={() => setIsUnlocked(true)} />
-            </TooltipProvider>
+            <GoogleReCaptchaProvider
+              reCaptchaKey="YOUR_RECAPTCHA_SITE_KEY"
+              language="en"
+            >
+              <TooltipProvider>
+                <Toaster />
+                <UnderConstruction onUnlock={() => setIsUnlocked(true)} />
+              </TooltipProvider>
+            </GoogleReCaptchaProvider>
           </LanguageProvider>
         </ThemeProvider>
       </ErrorBoundary>
@@ -67,10 +73,15 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
         <LanguageProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Router />
-          </TooltipProvider>
+          <GoogleReCaptchaProvider
+            reCaptchaKey="YOUR_RECAPTCHA_SITE_KEY"
+            language="en"
+          >
+            <TooltipProvider>
+              <Toaster />
+              <Router />
+            </TooltipProvider>
+          </GoogleReCaptchaProvider>
         </LanguageProvider>
       </ThemeProvider>
     </ErrorBoundary>

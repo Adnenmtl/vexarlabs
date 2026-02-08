@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Globe, Mail } from "lucide-react";
 import { toast } from "sonner";
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const CORRECT_PASSWORD = "Vx@rL4bs#2026!Qc";
 
@@ -15,6 +16,7 @@ interface UnderConstructionProps {
 
 export default function UnderConstruction({ onUnlock }: UnderConstructionProps) {
   const { language, setLanguage, t } = useLanguage();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [shake, setShake] = useState(false);
@@ -163,19 +165,37 @@ export default function UnderConstruction({ onUnlock }: UnderConstructionProps) 
             </div>
             
             <form 
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
                 if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                   toast.error(t('newsletter.invalidEmail'));
                   return;
                 }
                 setIsSubscribing(true);
-                // Simulate newsletter subscription (replace with actual API call)
-                setTimeout(() => {
-                  toast.success(t('newsletter.success'));
-                  setEmail("");
+                
+                try {
+                  // Execute reCAPTCHA verification
+                  if (!executeRecaptcha) {
+                    toast.error('reCAPTCHA not loaded. Please refresh the page.');
+                    setIsSubscribing(false);
+                    return;
+                  }
+                  
+                  const recaptchaToken = await executeRecaptcha('newsletter_construction');
+                  console.log('reCAPTCHA token:', recaptchaToken);
+                  // In production, send this token to your backend for verification
+                  
+                  // Simulate newsletter subscription (replace with actual API call)
+                  setTimeout(() => {
+                    toast.success(t('newsletter.success'));
+                    setEmail("");
+                    setIsSubscribing(false);
+                  }, 1000);
+                } catch (error) {
+                  console.error('Newsletter subscription error:', error);
+                  toast.error(t('newsletter.error'));
                   setIsSubscribing(false);
-                }, 1000);
+                }
               }}
               className="flex gap-2"
             >

@@ -7,13 +7,15 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Mail } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 export default function Footer() {
   const { t } = useLanguage();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [email, setEmail] = useState("");
   const [isSubscribing, setIsSubscribing] = useState(false);
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validate email
@@ -24,12 +26,29 @@ export default function Footer() {
 
     setIsSubscribing(true);
     
-    // Simulate newsletter subscription (replace with actual API call)
-    setTimeout(() => {
-      toast.success(t('newsletter.success'));
-      setEmail("");
+    try {
+      // Execute reCAPTCHA verification
+      if (!executeRecaptcha) {
+        toast.error('reCAPTCHA not loaded. Please refresh the page.');
+        setIsSubscribing(false);
+        return;
+      }
+      
+      const recaptchaToken = await executeRecaptcha('newsletter_subscribe');
+      console.log('reCAPTCHA token:', recaptchaToken);
+      // In production, send this token to your backend for verification
+      
+      // Simulate newsletter subscription (replace with actual API call)
+      setTimeout(() => {
+        toast.success(t('newsletter.success'));
+        setEmail("");
+        setIsSubscribing(false);
+      }, 1000);
+    } catch (error) {
+      console.error('Newsletter subscription error:', error);
+      toast.error(t('newsletter.error'));
       setIsSubscribing(false);
-    }, 1000);
+    }
   };
 
   return (

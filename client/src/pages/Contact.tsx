@@ -11,9 +11,11 @@ import { Mail, MapPin, Clock, Send, CheckCircle2, AlertCircle } from "lucide-rea
 import { useState } from "react";
 import { toast } from "sonner";
 import emailjs from '@emailjs/browser';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 export default function Contact() {
   const { t } = useLanguage();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,6 +39,17 @@ export default function Contact() {
     setSubmitStatus('idle');
 
     try {
+      // Execute reCAPTCHA verification
+      if (!executeRecaptcha) {
+        toast.error('reCAPTCHA not loaded. Please refresh the page.');
+        setIsSubmitting(false);
+        return;
+      }
+      
+      const recaptchaToken = await executeRecaptcha('contact_form');
+      console.log('reCAPTCHA token:', recaptchaToken);
+      // In production, send this token to your backend for verification
+
       // EmailJS configuration
       // Replace these with your actual EmailJS credentials from https://www.emailjs.com/
       const serviceId = 'YOUR_SERVICE_ID';
